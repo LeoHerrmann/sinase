@@ -1,0 +1,56 @@
+Sollte Essenswachstum exponentiell sein?
+Trennung von CSS in Layout und Erscheinungsbild
+Wenn Simulation fertig ist, kann man nicht weiter machen
+
+07.08.2019
+UI Anpassungen
+Tab Design vom Kontrollzentrum verbessert
+
+21.07.2019
+Erscheinungsbild von Buttons
+Header ändert Größe in Abhängigkeit zur Scrollposition
+
+20.07.2019
+Simulation kann angehalten, fortgesetzt und zurückgesetzt werden
+
+19.07.2019
+Standardwerte wurden angepasst, sodass sie sich nach genügend Tagen relativ konstant werden
+Energieverbrauch für Bewegung und Fortpflanzung kann eingestellt werden
+Designkorrekturen, vor allem am Kontrollzentrum
+
+15.07.2019
+Implementierung der Modular Scale
+
+13.07.2019
+Kleine Verbesserungen am Layout
+Neue Statistik: Durchschnittsgeschwindigkeit der Kreaturen
+
+12.07.2019
+Visualisierung der Statistik mit Chart.js
+Seite stellt auf Tabellenansicht um, wenn Bildschirm groß genug ist
+
+08.07.2019
+Statistik
+
+07.07.2019
+Essen entsteht nicht mehr am Ende eines Tages sondern in gleichmäßigen Abständen während eines Tages
+Benutzeroberfläche: Control Center als Popup
+
+06.07.2019
+Nachfolger von Kreaturen erscheinen nicht mehr am Rand, sondern bei ihren Eltern
+Geschwindigkeit kann sich über Generationen verändern
+Über die Benutzeroberfläche können automatisch mehrere Tage hintereinander simuliert werden
+
+05.07.2019
+Weniger zufälligere Bewegung der Kreaturen durch eingeschränkte Richtungsänderung
+Kreaturen sterben bei zu wenig Energie
+Kreaturen vermehren sich bei genug Energie
+Organisation des Quellcodes in Objekte
+Über Benutzeroberfläche lassen sich Einstellungen vornehmen
+
+04.07.2019
+Kreaturen können essen
+
+03.07.2019
+Kreaturen und Essen werden erstellt
+Kreaturen können sich bewegen

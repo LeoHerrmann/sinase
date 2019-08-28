@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Natürliche Selektion</title>
+        <link rel="stylesheet" type="text/css" href="styles.css"/>
+        <script src="Chart.bundle.min.js"></script>
+        <script src="script.js"></script>
+        <script src="settings.js"></script>
+        <script src="statistics.js"></script>
+        <script src="ui.js"></script>
+    </head>
+
+    <body>
+        <div id="placeholder"></div>
+    
+        <header>
+            <h1>Natürliche Selektion</h1>
+            <button onclick="ui.control_center.show();">K</button>
+        </header>
+
+
+
+
+
+        <div id="main">
+            <div id="simulation_container">
+                <h2>Simulation</h2>
+                <div id="environment"></div>
+
+                <div class="input_set">
+                    <label for="days_to_simulate_input">Anzahl der zu simulierenden Tage: </label>
+                    <input id="days_to_simulate_input" name="days_to_simulate_input" type="number" value="1"/>
+                </div>
+
+                <button id="simulation_toggle_button" class="primary" onclick="simulation.start();">Starten</button>
+                <button onclick="simulation.reset();">Zurücksetzen</button>
+            </div>
+
+
+
+
+
+            <div id="overlay" onclick="ui.control_center.hide();"></div>
+
+            <div id="control_center">
+                <div id="control_center_header">
+                    <button onclick="ui.control_center.hide();">X</button>
+
+                    <h2>Kontrollzentrum</h2>
+
+                    <div id="tab_switcher"></div>
+                </div>
+
+
+
+                <div id="actions_container" class="tab" data-tab-name="Aktionen">
+                    <div class="input_set">
+                        <label for="new_creature_count_input">Kreaturen erzeugen: </label>
+                        <input id="new_creature_count_input" name="new_creature_count_input" type="number" value="10"> 
+                    </div>
+
+                    <div class="input_set">
+                        <label for="new_food_count_input">Nahrung erzeugen: </label>
+                        <input id="new_food_count_input" name="new_food_count_input" type="number" value="200"/>
+                    </div>
+
+                    <button class="primary" onclick="world.populate();">Ausführen</button>
+                </div>
+
+
+
+                <div id="settings_container" class="tab" data-tab-name="Parameter"></div>
+
+
+
+                <div id="statistics_container" class="tab" data-tab-name="Statistik"></div>
+            </div>
+        </div>
+    </body>
+</html>
