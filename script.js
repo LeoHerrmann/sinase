@@ -6,7 +6,7 @@ var days_to_simulate = 0;
 
 
 window.onload = function() {
-    ui.header.add_scroll_event();
+    //ui.header.add_scroll_event();
     ui.control_center.create_tabs();
     settings_manager.show();
 }
