@@ -3,6 +3,13 @@ Trennung von CSS in Layout und Erscheinungsbild
 Wenn Simulation fertig ist, kann man nicht weiter machen
 
 
+05.09.2019
+manifest.json
+
+29.08.2019
+Roboto durch Raleway ersetzt
+Modular scale ratio von 1.25 auf 1.2 verringert
+
 28.08.2019
 Margins und Paddings verbessert
 

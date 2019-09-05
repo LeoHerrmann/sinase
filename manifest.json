@@ -1,0 +1,15 @@
+{
+    "name": "Natural Selection Simulator",
+    "short": "Natural Selection",
+    "icons": [
+        {
+            "src": "icon.svg",
+            "type": "iamge/svg",
+            "sizes": "512x512"
+        }
+    ],
+    "start_url": "/",
+    "display": "standalone",
+    "theme_color": "#07B",
+    "background_color": "FFF" 
+}
