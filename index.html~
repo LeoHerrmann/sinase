@@ -27,8 +27,6 @@
             <h1>Natürliche Selektion</h1>
             <button onclick="ui.control_center.show();">K</button>
         </header>
-        
-        <div class="placeholder"></div>
 
 
 

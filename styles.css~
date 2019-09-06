@@ -38,7 +38,6 @@
 body {
     font-family: "Open Sans", sans-serif;
     line-height:1.2;
-    margin: var(--space--3);
     margin-top: 0;
 }
 
@@ -80,14 +79,14 @@ h1, h2, h3, h4 {
     margin:0;
 }
 h1 {
-    font-size: var(--space-2);
-    line-height: 1;
-    font-weight: 600;
-}
-h2 {
-    font-size:var(--space-1);
+    font-size: var(--space-3);
     line-height: 1;
     font-weight: 800;
+}
+h2 {
+    font-size:var(--space-2);
+    line-height: 1;
+    font-weight: 600;
 }
 h3 {
     font-size:var(--space-1);
@@ -130,24 +129,20 @@ h4 {
 }
 
 header {
-    position: fixed;
+    position: sticky;
     top: 0;
-    left: 0;
-    width: 100%;
 
     display: grid;
     grid-template-columns: 1fr var(--space-3);
-    align-items: center;
-    padding: var(--space-1) var(--space--3);
+    padding: var(--space--3);
+    padding-top: var(--space-3);
+    padding-bottom: var(--space--5);
     box-sizing: border-box;
     z-index: 10;
 
-    box-shadow: 0 0 4px rgba(0,0,0,0.3);
+    border-bottom: 1px solid #DDD;
     background: #FFF;
     transition: padding 0.3s;
-}
-header + .placeholder {
-    height: calc(var(--space-3) + 2 * var(--space-1));
 }
 header > button {
     height: var(--space-3);
@@ -160,10 +155,8 @@ header > button {
 
 
 #simulation_container, #control_center {
+    margin-top: var(--space--5);
     padding: var(--space--3);
-    
-    border: 1px solid #DDD;
-    border-radius: 5px;
 }
 
 #main > #overlay {
@@ -207,11 +200,11 @@ header > button {
         display:grid;
         grid-template-columns:repeat(2, 1fr);
         grid-template-rows: 1fr;
-        grid-gap: var(--space--3);
+        grid-gap:var(--space-1);
     }
 
-    #main > #simulation_container, #main > #control_center {
-        margin: var(--space--3) 0 0 0;
+    #main > #simulation_container {
+        margin: var(--space--5) 0 0 0;
         max-width:none;
     }
 
@@ -239,17 +232,17 @@ header > button {
 
 #simulation_container {
     max-width:500px;
-    margin: var(--space--3) auto auto auto;
+    margin: var(--space--5) auto auto auto;
 }
 #simulation_container > * + * {
-    margin-top: var(--space--3);
+    margin-top: var(--space--5);
 }
 #environment {
     position:relative;
     width:100%;
     height:0;
     padding-bottom:100%;
-    background-color:#EEE;
+    background-color:#DDD;
 }
 
 #environment > .creature {
@@ -267,7 +260,7 @@ header > button {
 }
 
 #environment + .input_set {
-    margin-top: var(--space--3);
+    margin-top: var(--space--5);
 }
 
 
