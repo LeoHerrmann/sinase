@@ -101,12 +101,16 @@ h4 {
 
 
 .input_set {
-    display:grid;
-    grid-template-columns:1fr 9ch;
+    /*display:grid;*/
+    /*grid-template-columns:1fr 9ch;*/
+    display: flex;
     align-items: center;
-    max-width:50ch;
+    max-width:500px;
     margin-top:var(--space--5);
     line-height: 1.2;
+}
+.input_set > label {
+    flex-grow: 1;
 }
 .input_set > input {
     max-width:9ch;
@@ -138,7 +142,7 @@ header {
     display: grid;
     grid-template-columns: 1fr var(--space-3);
     align-items: center;
-    padding: var(--space-1) var(--space--3);
+    padding: var(--space-0) var(--space--3);
     box-sizing: border-box;
     z-index: 10;
 
@@ -147,7 +151,7 @@ header {
     transition: padding 0.3s;
 }
 header + .placeholder {
-    height: calc(var(--space-3) + 2 * var(--space-1));
+    height: calc(var(--space-3) + 2 * var(--space-0));
 }
 header > button {
     height: var(--space-3);
@@ -186,7 +190,7 @@ header > button {
     left:50%;
     transform:translate(-50%, -50%);
     width:calc(100% - var(--space-2));
-    max-width:600px;
+    max-width:500px;
     max-height:calc(100vh - 2 * var(--space-2));
     z-index: 30;
     overflow: auto;
