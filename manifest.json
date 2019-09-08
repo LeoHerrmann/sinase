@@ -1,15 +1,15 @@
 {
-    "name": "Natural Selection Simulator",
-    "short": "Natural Selection",
+    "name": "Simulate Natural Selection",
+    "short": "Sinase!",
     "icons": [
         {
-            "src": "icon.svg",
-            "type": "image/svg",
+            "src": "icon.png",
+            "type": "image/png",
             "sizes": "512x512"
         }
     ],
     "start_url": "/",
     "display": "standalone",
     "theme_color": "#07B",
-    "background_color": "FFF" 
+    "background_color": "#EEE" 
 }

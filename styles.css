@@ -1,15 +1,15 @@
 @font-face {
     font-family: "Raleway";
-    font-weight: 400;
-    src: url("Raleway/Raleway-Regular.ttf");
+    font-weight: 900;
+    src: url("Raleway/Raleway-ExtraBold.ttf");
 }
 @font-face {
-    font-family: "Open Sans";
+    font-family: "Raleway";
     font-weight: 600;
     src: url("Raleway/Raleway-Medium.ttf");
 }
 @font-face {
-    font-family: "Open Sans";
+    font-family: "Raleway";
     font-weight: 800;
     src: url("Raleway/Raleway-Bold.ttf");
 }
@@ -36,15 +36,17 @@
 
 
 body {
-    font-family: "Open Sans", sans-serif;
+    font-family: "Raleway", sans-serif;
     line-height:1.2;
     margin: var(--space--3);
     margin-top: 0;
+    background-color: #EEE;
 }
 
 
 
 button, input {
+    font-family: "Raleway";
     font-size:var(--space--1);
     height: var(--space-4);
     box-sizing: border-box;
@@ -58,7 +60,7 @@ button, input {
 button {
     color: #07b;
     text-transform: uppercase;
-    font-weight: 800;
+    font-weight: 900;
 }
 button:active {
     background-color:#EEE;
@@ -82,7 +84,7 @@ h1, h2, h3, h4 {
 h1 {
     font-size: var(--space-2);
     line-height: 1;
-    font-weight: 600;
+    font-weight: 800;
 }
 h2 {
     font-size:var(--space-1);
@@ -101,8 +103,6 @@ h4 {
 
 
 .input_set {
-    /*display:grid;*/
-    /*grid-template-columns:1fr 9ch;*/
     display: flex;
     align-items: center;
     max-width:500px;
@@ -146,12 +146,16 @@ header {
     box-sizing: border-box;
     z-index: 10;
 
-    box-shadow: 0 0 4px rgba(0,0,0,0.3);
+    /*box-shadow: 0 0 4px rgba(0,0,0,0.3);*/
+    border-bottom: 1px solid #DDD;
     background: #FFF;
     transition: padding 0.3s;
 }
 header + .placeholder {
     height: calc(var(--space-3) + 2 * var(--space-0));
+}
+header > h1 {
+    line-height: var(--space-3);
 }
 header > button {
     height: var(--space-3);
@@ -167,7 +171,8 @@ header > button {
     padding: var(--space--3);
     
     border: 1px solid #DDD;
-    border-radius: 5px;
+    border-radius: 4px;
+    background-color: #FFF;
 }
 
 #main > #overlay {
@@ -189,13 +194,12 @@ header > button {
     top:50%;
     left:50%;
     transform:translate(-50%, -50%);
-    width:calc(100% - var(--space-2));
+    width:calc(100% - var(--space-4));
     max-width:500px;
-    max-height:calc(100vh - 2 * var(--space-2));
+    max-height:calc(100vh - 2 * var(--space-4));
     z-index: 30;
     overflow: auto;
     box-sizing:border-box;
-    background-color:#FFF;
     border-radius: 4px;
 }
 
@@ -279,7 +283,7 @@ header > button {
 
 
 #control_center >.tab > * + * {
-    margin-top: var(--space--5);
+    margin-top: var(--space--3);
 }
 
 #control_center_header {
@@ -301,6 +305,7 @@ header > button {
     overflow-x:auto;
     overflow-y:hidden;
     white-space:nowrap;
+    margin-top: var(--space--3);
 }
 #control_center_header > #tab_switcher > button {
     border: 0;
@@ -310,4 +315,12 @@ header > button {
 #control_center_header > #tab_switcher > button.highlighted {
     color: #07C;
     border-bottom: 2px solid #07C;
+}
+
+#control_center > #statistics_container > .chart_container {
+    border: 1px solid #DDD;
+    border-radius: 4px;
+    padding: var(--space--3);
+    margin-top: var(--space--3);
+    
 }
