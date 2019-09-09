@@ -2,6 +2,10 @@ Sollte Essenswachstum exponentiell sein?
 Trennung von CSS in Layout und Erscheinungsbild
 Wenn Simulation fertig ist, kann man nicht weiter machen
 
+09.09.2019
+Mindest- und Höchstgeschwindigkeit einstellbar
+Geschwindigkeitsvariationen zwischen Generationen einstellbar
+
 07.09.2019
 Styleverbesserungen und -korrekturen
 Titel auf Sinase! (Simulate Natural Selection) geändert; Vorheriger war zu lang

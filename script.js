@@ -168,18 +168,17 @@ var creatures_manager = {
                 }
 
 
-                child_min_speed = this.speed - 0.05;
-                child_max_speed = this.speed + 0.05;
+                child_min_speed = this.speed - parseFloat(settings_manager.get_value("creature_speed_variation"));
+                child_max_speed = this.speed + parseFloat(settings_manager.get_value("creature_speed_variation"));
 
-                if (child_min_speed < 0.5) {
-                    child_min_speed = 0.5;
+                if (child_min_speed < parseFloat(settings_manager.get_value("creature_speed_min"))) {
+                    child_min_speed = parseFloat(settings_manager.get_value("creature_speed_min"));
                 }
-                if (child_max_speed > 2) {
-                    child_max_speed = 2;
+                if (child_max_speed > parseFloat(settings_manager.get_value("creature_speed_max"))) {
+                    child_max_speed = parseFloat(settings_manager.get_value("creature_speed_max"));
                 }
 
-                child_properties.speed = randint(child_min_speed, child_max_speed);
-
+                child_properties.speed = randint(child_min_speed * 100, child_max_speed * 100) / 100;
 
                 creatures_manager.create_new(JSON.parse(JSON.stringify(child_properties)));
 

@@ -74,7 +74,33 @@ var settings_manager = {
             value: 5,
             type: "number",
             min: 0
-        }/*,
+        },
+        
+        creature_speed_max: {
+            value: 2,
+            type: "number",
+            min: 0.25,
+            max: 4,
+            step: 0.25
+        },
+        
+        creature_speed_min: {
+            value: 0.5,
+            type: "number",
+            min: 0.25,
+            max: 4,
+            step: 0.25
+        },
+        
+        creature_speed_variation: {
+            value: 0.5,
+            type: "number",
+            min: 0.1,
+            max: 2,
+            step: 0.25
+        }
+        
+        /*,
 
         creature_reproduction_energy: {
             value: 800,
