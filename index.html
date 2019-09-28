@@ -6,9 +6,10 @@
         <title>Sinase!</title>
         <link rel="manifest" href="manifest.json"/>
         <link rel="stylesheet" type="text/css" href="styles.css"/>
+        <link rel="stylesheet" type="text/css" href="fontello/css/fontello.css"/>
         <script src="Chart.bundle.min.js"></script>
         <script src="script.js"></script>
-        <script src="settings.js"></script>
+        <script src="parameters.js"></script>
         <script src="statistics.js"></script>
         <script src="ui.js"></script>
         
@@ -25,7 +26,6 @@
     
         <header>
             <h1>Sinase!</h1>
-            <button onclick="ui.control_center.show();">K</button>
         </header>
         
         <div class="placeholder"></div>
@@ -36,56 +36,76 @@
 
         <div id="main">
             <div id="simulation_container">
-                <h2>Simulation</h2>
                 <div id="environment"></div>
-
-                <div class="input_set">
-                    <label for="days_to_simulate_input">Anzahl der zu simulierenden Tage: </label>
-                    <input id="days_to_simulate_input" name="days_to_simulate_input" type="number" value="1"/>
-                </div>
-
-                <button id="simulation_toggle_button" class="primary" onclick="simulation.start();">Starten</button>
-                <button onclick="simulation.reset();">Zurücksetzen</button>
             </div>
 
 
 
+            <div id="button_container">
+                <button class="icon-population" onclick="ui.popup.show('population_container')"></button>
+                <button class="icon-time" onclick="ui.popup.show('time_container')"></button>
+                <button class="icon-parameters" onclick="ui.popup.show('parameters_container')"></button>
+                <button class="icon-statistics" onclick="ui.popup.show('statistics_container')"></button>
+            </div>
 
 
-            <div id="overlay" onclick="ui.control_center.hide();"></div>
 
-            <div id="control_center">
-                <div id="control_center_header">
-                    <button onclick="ui.control_center.hide();">X</button>
+            <div id="overlay" onclick="ui.popup.hide();"></div>
 
-                    <h2>Kontrollzentrum</h2>
 
-                    <div id="tab_switcher"></div>
+
+            <div id="population_container" class="popup">
+                <div class="popup_header">
+                    <h2>Bevölkerung</h2>
+                    <button class="negative" onclick="ui.popup.hide();">X</button>
                 </div>
 
-
-
-                <div id="actions_container" class="tab" data-tab-name="Aktionen">
-                    <div class="input_set">
-                        <label for="new_creature_count_input">Kreaturen erzeugen: </label>
-                        <input id="new_creature_count_input" name="new_creature_count_input" type="number" value="10"> 
-                    </div>
-
-                    <div class="input_set">
-                        <label for="new_food_count_input">Nahrung erzeugen: </label>
-                        <input id="new_food_count_input" name="new_food_count_input" type="number" value="200"/>
-                    </div>
-
-                    <button class="primary" onclick="world.populate();">Ausführen</button>
+                <div class="input_set">
+                    <label for="new_creature_count_input">Kreaturen erzeugen: </label>
+                    <input id="new_creature_count_input" name="new_creature_count_input" type="number" value="10"> 
                 </div>
 
+                <div class="input_set">
+                    <label for="new_food_count_input">Nahrung erzeugen: </label>
+                    <input id="new_food_count_input" name="new_food_count_input" type="number" value="200"/>
+                </div>
+
+                <button class="primary" onclick="world.populate(); ui.popup.hide();">Ausführen</button>
+            </div>
 
 
-                <div id="settings_container" class="tab" data-tab-name="Parameter"></div>
+
+            <div id="time_container" class="popup">
+                <div class="popup_header">
+                    <h2>Zeit</h2>
+                    <button class="negative" onclick="ui.popup.hide();">X</button>
+                </div>
+            
+                <div class="input_set">
+                    <label for="days_to_simulate_input">Anzahl der Durchgänge: </label>
+                    <input id="days_to_simulate_input" name="days_to_simulate_input" type="number" value="10"/>
+                </div>
+
+                <button id="simulation_toggle_button" class="primary" onclick="simulation.start(); ui.popup.hide();">Starten</button>
+                <button onclick="simulation.reset();">Zurücksetzen</button>
+            </div> 
 
 
 
-                <div id="statistics_container" class="tab" data-tab-name="Statistik"></div>
+            <div id="parameters_container" class="popup">
+                <div class="popup_header">
+                    <h2>Parameter</h2>
+                    <button class="negative" onclick="ui.popup.hide();">X</button>
+                </div>
+            </div>
+
+
+
+            <div id="statistics_container" class="popup">
+                <div class="popup_header">
+                    <h2>Statistik</h2>
+                    <button class="negative" onclick="ui.popup.hide();">X</button>
+                </div>
             </div>
         </div>
     </body>

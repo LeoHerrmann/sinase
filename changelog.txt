@@ -1,6 +1,7 @@
 Sollte Essenswachstum exponentiell sein?
-Trennung von CSS in Layout und Erscheinungsbild
-Wenn Simulation fertig ist, kann man nicht weiter machen
+
+28.09.2019
+Neues Layout
 
 09.09.2019
 Mindest- und Höchstgeschwindigkeit einstellbar

@@ -1,49 +1,52 @@
-var settings_manager = {
+var parameters_manager = {
     show: function() {
-        var settings_container = document.getElementById("settings_container");
+        var parameters_container = document.getElementById("parameters_container");
 
-        for (setting in settings_manager.settings) {
+        for (parameter in parameters_manager.parameters) {
             let new_input_set = document.createElement("div");
             let new_setting_label = document.createElement("label");
             let new_setting_input = document.createElement("input");
 
 
             new_input_set.classList.add("input_set")
-            new_setting_label.setAttribute("for", setting + "_input");
-            new_setting_label.innerText = setting + ": "
-            new_setting_input.setAttribute("name", setting + "_input");
+            new_setting_label.setAttribute("for", parameter + "_input");
+            new_setting_label.innerText = parameter + ": "
+            new_setting_input.setAttribute("name", parameter + "_input");
 
-            for (attribute in settings_manager.settings[setting]) {
-                new_setting_input.setAttribute(attribute, settings_manager.settings[setting][attribute]);
+            for (attribute in parameters_manager.parameters[parameter]) {
+                new_setting_input.setAttribute(attribute, parameters_manager.parameters[parameter][attribute]);
             }
 
             new_input_set.append(new_setting_label);
             new_input_set.append(new_setting_input);
-            settings_container.append(new_input_set);
+            parameters_container.append(new_input_set);
         }
 
-        var save_button = document.createElement("button");
+        /*var save_button = document.createElement("button");
         save_button.innerText = "Speichern";
         save_button.classList.add("primary");
-        save_button.addEventListener("click", settings_manager.save);
-        settings_container.append(save_button)
+        save_button.addEventListener("click", parameters_manager.save);*/
+        
+        var save_button = "<button class='primary' onclick='parameters_manager.save; ui.popup.hide();'>Speichern</button>";
+        
+        parameters_container.innerHTML += save_button;
     },
 
 
     save: function() {
-        for (setting in settings_manager.settings) {
-            var input = document.querySelector("#settings_container input[name='" + setting + "_input']").value;
-            settings_manager.settings[setting].value = input;
+        for (setting in parameters_manager.parameters) {
+            var input = document.querySelector("#parameters_container input[name='" + setting + "_input']").value;
+            parameters_manager.parameters[setting].value = input;
         }
     },
 
 
     get_value: function(setting) {
-        return settings_manager.settings[setting].value;
+        return parameters_manager.parameters[setting].value;
     },
 
 
-    settings: {
+    parameters: {
         day_length: {
             value: 100,
             type: "number",

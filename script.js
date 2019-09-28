@@ -6,9 +6,7 @@ var days_to_simulate = 0;
 
 
 window.onload = function() {
-    //ui.header.add_scroll_event();
-    ui.control_center.create_tabs();
-    settings_manager.show();
+    parameters_manager.show();
 }
 
 
@@ -72,15 +70,15 @@ var simulation = {
         creatures_manager.check_energy();
 
 
-        if (time % settings_manager.get_value("food_growth_cycle") == 0) {
-            world.populate(0, settings_manager.get_value("food_growth_amount"));
+        if (time % parameters_manager.get_value("food_growth_cycle") == 0) {
+            world.populate(0, parameters_manager.get_value("food_growth_amount"));
         }
 
 
         visualize();
 
 
-        if (time == settings_manager.get_value("day_length") - 1) {
+        if (time == parameters_manager.get_value("day_length") - 1) {
             time = 0;
             day += 1;
 
@@ -156,7 +154,7 @@ var creatures_manager = {
         var new_creature = {
             id: creatures_manager.id_counter,
             position: {},
-            energy: settings_manager.get_value("creature_start_energy"),
+            energy: parameters_manager.get_value("creature_start_energy"),
             speed: 1,
 
 
@@ -168,21 +166,21 @@ var creatures_manager = {
                 }
 
 
-                child_min_speed = this.speed - parseFloat(settings_manager.get_value("creature_speed_variation"));
-                child_max_speed = this.speed + parseFloat(settings_manager.get_value("creature_speed_variation"));
+                child_min_speed = this.speed - parseFloat(parameters_manager.get_value("creature_speed_variation"));
+                child_max_speed = this.speed + parseFloat(parameters_manager.get_value("creature_speed_variation"));
 
-                if (child_min_speed < parseFloat(settings_manager.get_value("creature_speed_min"))) {
-                    child_min_speed = parseFloat(settings_manager.get_value("creature_speed_min"));
+                if (child_min_speed < parseFloat(parameters_manager.get_value("creature_speed_min"))) {
+                    child_min_speed = parseFloat(parameters_manager.get_value("creature_speed_min"));
                 }
-                if (child_max_speed > parseFloat(settings_manager.get_value("creature_speed_max"))) {
-                    child_max_speed = parseFloat(settings_manager.get_value("creature_speed_max"));
+                if (child_max_speed > parseFloat(parameters_manager.get_value("creature_speed_max"))) {
+                    child_max_speed = parseFloat(parameters_manager.get_value("creature_speed_max"));
                 }
 
                 child_properties.speed = randint(child_min_speed * 100, child_max_speed * 100) / 100;
 
                 creatures_manager.create_new(JSON.parse(JSON.stringify(child_properties)));
 
-                this.energy -= settings_manager.get_value("creature_start_energy");
+                this.energy -= parameters_manager.get_value("creature_start_energy");
             },
 
 
@@ -245,7 +243,7 @@ var creatures_manager = {
                 }
             }
 
-            creature.energy -= creature.speed * settings_manager.get_value("creature_energy_consumption");
+            creature.energy -= creature.speed * parameters_manager.get_value("creature_energy_consumption");
         }
 
 
@@ -284,8 +282,8 @@ var creatures_manager = {
 
     check_energy: function() {
         for (creature of creatures_manager.list) {
-            //if (creature.energy >= settings_manager.get_value("creature_reproduction_energy")) {
-            if (creature.energy >= 2 * settings_manager.get_value("creature_start_energy")) {
+            //if (creature.energy >= parameters_manager.get_value("creature_reproduction_energy")) {
+            if (creature.energy >= 2 * parameters_manager.get_value("creature_start_energy")) {
                 creature.multiply();
             }
             else if (creature.energy <= 0) {
