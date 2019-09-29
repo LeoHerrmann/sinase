@@ -39,6 +39,7 @@
 
 body {
     font-family: "Raleway", sans-serif;
+    font-feature-settings: "lnum" 1;
     line-height:1.2;
     margin: var(--space--3);
     margin-top: 0;
@@ -51,6 +52,7 @@ body {
 
 button, input {
     font-family: "Raleway";
+    font-feature-settings: "lnum" 1;
     font-size:var(--space--1);
     height: var(--space-4);
     box-sizing: border-box;

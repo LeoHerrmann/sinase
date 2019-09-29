@@ -1,6 +1,5 @@
-var day = 0;
 var time = 0;
-var days_to_simulate = 0;
+var simulate_until = 0;
 
 
 
@@ -15,11 +14,13 @@ window.onload = function() {
 
 var simulation = {
     start: function() {
-        days_to_simulate = document.querySelector("input[name='days_to_simulate_input']").value;
-
-        day = 0;
+        simulate_until = document.querySelector("input[name='simulate_until_input']").value;
         time = 0;
-
+        
+        statistics.save("population", creatures_manager.list.length);
+        statistics.save("food", food_manager.list.length);
+        statistics.save("average_creature_speed", creatures_manager.get_average_speed());
+        
         var simulation_toggle_button = document.getElementById("simulation_toggle_button");
         simulation_toggle_button.onclick = simulation.stop;
         simulation_toggle_button.innerText = "Anhalten";
@@ -38,6 +39,8 @@ var simulation = {
 
 
     continue: function() {
+        simulate_until = document.querySelector("input[name='simulate_until_input']").value;
+    
         simulation.time_unit_timeout = setTimeout(simulation.time_unit, 1000/60);
 
         var simulation_toggle_button = document.getElementById("simulation_toggle_button");
@@ -49,8 +52,8 @@ var simulation = {
     reset: function() {
         clearTimeout(simulation.time_unit_timeout);
 
-        day = 0;
         time = 0;
+        simulate_until = 0;
 
         world.clear();
         statistics.clear();
@@ -64,7 +67,14 @@ var simulation = {
     time_unit_timeout: 0,
 
 
-    time_unit: function() {
+    time_unit: function() {        
+        if (time % 100 === 0) {
+            statistics.save("population", creatures_manager.list.length);
+            statistics.save("food", food_manager.list.length);
+            statistics.save("average_creature_speed", creatures_manager.get_average_speed());
+        }
+        
+        if (time < simulate_until) {
         creatures_manager.move();
         creatures_manager.eat();
         creatures_manager.check_energy();
@@ -76,34 +86,16 @@ var simulation = {
 
 
         visualize();
-
-
-        if (time == parameters_manager.get_value("day_length") - 1) {
-            time = 0;
-            day += 1;
-
-
-            statistics.save("population", creatures_manager.list.length);
-            statistics.save("food", food_manager.list.length);
-            statistics.save("average_creature_speed", creatures_manager.get_average_speed());
-
-
-            if (day < days_to_simulate) {
-                simulation.time_unit_timeout = setTimeout(function() {
-                    simulation.time_unit();
-                }, 500);
-            }
-            else {
-                var simulation_toggle_button = document.getElementById("simulation_toggle_button");
-                simulation_toggle_button.onclick = simulation.start;
-                simulation_toggle_button.innerText = "Starten";
-            }
+        
+        time += 1;
+        document.getElementById("current_time_label").innerText = time;
+        
+            simulation.time_unit_timeout = setTimeout(simulation.time_unit, 1000/60);
         }
         else {
-            time += 1;
-            if (day < days_to_simulate) {
-                simulation.time_unit_timeout = setTimeout(simulation.time_unit, 1000/60)
-            }
+            var simulation_toggle_button = document.getElementById("simulation_toggle_button");
+            simulation_toggle_button.onclick = simulation.continue;
+            simulation_toggle_button.innerText = "Fortsetzen";
         }
     }
 }

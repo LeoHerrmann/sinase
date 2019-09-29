@@ -28,7 +28,7 @@ var statistics = {
                     labels: [],
                     datasets: [{
                          label: dataset,
-                        data: statistics.data[dataset]
+                         data: statistics.data[dataset]
                     }]
                 }
             });
@@ -37,9 +37,11 @@ var statistics = {
         }
 
 
-        statistics.data[dataset].push(value);
-        statistics.charts[dataset].data.labels.push(statistics.charts[dataset].data.labels.length);
-        statistics.charts[dataset].update();
+        if (statistics.charts[dataset].data.labels.indexOf(time) == -1) {
+            statistics.data[dataset].push(value);
+            statistics.charts[dataset].data.labels.push(time);
+            statistics.charts[dataset].update();
+        }
     },
 
     clear: function() {

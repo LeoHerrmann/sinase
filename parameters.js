@@ -22,12 +22,7 @@ var parameters_manager = {
             parameters_container.append(new_input_set);
         }
 
-        /*var save_button = document.createElement("button");
-        save_button.innerText = "Speichern";
-        save_button.classList.add("primary");
-        save_button.addEventListener("click", parameters_manager.save);*/
-        
-        var save_button = "<button class='primary' onclick='parameters_manager.save; ui.popup.hide();'>Speichern</button>";
+        var save_button = "<button class='primary' onclick='parameters_manager.save(); ui.popup.hide();'>Speichern</button>";
         
         parameters_container.innerHTML += save_button;
     },
@@ -92,15 +87,15 @@ var parameters_manager = {
             type: "number",
             min: 0.25,
             max: 4,
-            step: 0.25
+            step: 0.1
         },
         
         creature_speed_variation: {
             value: 0.5,
             type: "number",
-            min: 0.1,
+            min: 0,
             max: 2,
-            step: 0.25
+            step: 0.1
         }
         
         /*,

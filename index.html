@@ -81,9 +81,14 @@
                     <button class="negative" onclick="ui.popup.hide();">X</button>
                 </div>
             
+                <div>
+                    <span>Zeit:</span>
+                    <span id="current_time_label">0</span>
+                </div>
+            
                 <div class="input_set">
-                    <label for="days_to_simulate_input">Anzahl der Durchgänge: </label>
-                    <input id="days_to_simulate_input" name="days_to_simulate_input" type="number" value="10"/>
+                    <label for="simulate_until_input">Simulieren bis:</label>
+                    <input id="simulate_until_input" name="simulate_until_input" type="number" value="1000"/> 
                 </div>
 
                 <button id="simulation_toggle_button" class="primary" onclick="simulation.start(); ui.popup.hide();">Starten</button>
