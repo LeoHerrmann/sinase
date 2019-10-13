@@ -1,4 +1,5 @@
-Sollte Essenswachstum exponentiell sein?
+12.10.2019
+Parametereingabevalidation
 
 29.09.2019
 Lining figures

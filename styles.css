@@ -211,6 +211,16 @@ h4 {
 
 
 
+#error_container {
+    color: #F50;
+}
+#error_container > span {
+    display: block;
+}
+
+
+
+
 
 
 #placeholder {

@@ -5,7 +5,7 @@ var simulate_until = 0;
 
 
 window.onload = function() {
-    parameters_manager.show();
+    parameters_manager.fill_parameters_container();
 }
 
 
@@ -155,7 +155,7 @@ var creatures_manager = {
                     position: this.position,
                     direction: this.direction,
                     speed: this.speed
-                }
+                };
 
 
                 child_min_speed = this.speed - parseFloat(parameters_manager.get_value("creature_speed_variation"));
@@ -185,7 +185,7 @@ var creatures_manager = {
                     }
                 }
             }
-        }
+        };
 
 
         if (randint(0, 1) == 0) {
@@ -204,7 +204,7 @@ var creatures_manager = {
         }
 
 
-        for (property in properties) {
+        for (let property in properties) {
             new_creature[property] = properties[property];
         }
 
@@ -274,7 +274,6 @@ var creatures_manager = {
 
     check_energy: function() {
         for (creature of creatures_manager.list) {
-            //if (creature.energy >= parameters_manager.get_value("creature_reproduction_energy")) {
             if (creature.energy >= 2 * parameters_manager.get_value("creature_start_energy")) {
                 creature.multiply();
             }
