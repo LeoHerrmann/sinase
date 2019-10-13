@@ -26,29 +26,29 @@ var parameters_manager = {
 
     save: function() {
         var errors_list = validate();
-    
+
         if (errors_list.length == 0) {
             for (setting in parameters_manager.parameters) {
                 var input = document.querySelector("#parameters_container input[name='" + setting + "_input']").value;
                 parameters_manager.parameters[setting].value = input;
             }
-            
+
             ui.popup.hide();
         }
-        
-        
+
+
         function validate() {
             var errors_list = [];
-        
+
             var input = {};
-        
+
             for (let setting in parameters_manager.parameters) {            
                 var input_value = parseFloat(document.querySelector("#parameters_container input[name='" + setting + "_input']").value);
                 input[setting] = input_value;
-            
+
                 var minimum_allowed_value = parameters_manager.parameters[setting].min;
                 var maximum_allowed_value = parameters_manager.parameters[setting].max; 
-            
+
                 if (input_value < minimum_allowed_value) {
                     errors_list.push(setting + " muss mindestens " + minimum_allowed_value + " sein.");
                 }
@@ -56,23 +56,23 @@ var parameters_manager = {
                     errors_list.push(setting + " darf höchstens " + maximum_allowed_value + " sein.");
                 }
             }
-        
-        
+
+
             if (input["creature_speed_min"] > input["creature_speed_max"]) {
                 errors_list.push("creature_speed_min darf nicht größer als creature_speed_max sein.");
             }
-        
-        
+
+
             var error_container = document.getElementById("error_container");
-            
+
             if (errors_list.length == 0) {
                 error_container.style.display = "none";
             }
-            
+
             else {
                 error_container.style.display = "block";
                 error_container.innerHTML = "<span>Es sind noch Fehler zu beheben, bevor die Parameter gespeichert werden können:</span>";
-                
+
                 for (error of errors_list) {
                     var error_span = "<span>" + error + "</span>";
 
@@ -118,7 +118,7 @@ var parameters_manager = {
             min: 0,
             step: 1
         },
-        
+
         creature_speed_max: {
             value: 2,
             type: "number",
@@ -126,7 +126,7 @@ var parameters_manager = {
             max: 4,
             step: "any"
         },
-        
+
         creature_speed_min: {
             value: 0.5,
             type: "number",
@@ -134,7 +134,7 @@ var parameters_manager = {
             max: 4,
             step: "any"
         },
-        
+
         creature_speed_variation: {
             value: 0.5,
             type: "number",
@@ -142,13 +142,5 @@ var parameters_manager = {
             max: 2,
             step: "any"
         }
-        
-        /*,
-
-        creature_reproduction_energy: {
-            value: 800,
-            type: "number",
-            min: 0
-        }*/
     }
 };

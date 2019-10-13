@@ -4,9 +4,10 @@ var simulate_until = 0;
 
 
 
+
 window.onload = function() {
     parameters_manager.fill_parameters_container();
-}
+};
 
 
 
@@ -16,24 +17,17 @@ var simulation = {
     start: function() {
         simulate_until = document.querySelector("input[name='simulate_until_input']").value;
         time = 0;
-        
-        /*statistics.save("population", creatures_manager.list.length);
-        statistics.save("food", food_manager.list.length);
-        statistics.save("average_creature_speed", creatures_manager.get_average_speed());*/
-        /*statistics.save("population", "population", creatures_manager.list.length);
-        statistics.save("food", "food", food_manager.list.length);
-        statistics.save("creature_speed", "average", creatures_manager.get_average_speed());*/
-        
+
+        simulation.time_unit_timeout = setTimeout(simulation.time_unit, 1000/60);
+
         var simulation_toggle_button = document.getElementById("simulation_toggle_button");
         simulation_toggle_button.onclick = simulation.stop;
         simulation_toggle_button.innerText = "Anhalten";
-
-        simulation.time_unit_timeout = setTimeout(simulation.time_unit, 1000/60);
     },
 
 
     stop: function() {
-      clearTimeout(simulation.time_unit_timeout);
+        clearTimeout(simulation.time_unit_timeout);
 
         var simulation_toggle_button = document.getElementById("simulation_toggle_button");
         simulation_toggle_button.onclick = simulation.continue;
@@ -43,7 +37,7 @@ var simulation = {
 
     continue: function() {
         simulate_until = document.querySelector("input[name='simulate_until_input']").value;
-    
+
         simulation.time_unit_timeout = setTimeout(simulation.time_unit, 1000/60);
 
         var simulation_toggle_button = document.getElementById("simulation_toggle_button");
@@ -70,23 +64,19 @@ var simulation = {
     time_unit_timeout: 0,
 
 
-    time_unit: function() {        
+    time_unit: function() {
         if (time % 100 === 0) {
-            /*statistics.save("population", creatures_manager.list.length);
-            statistics.save("food", food_manager.list.length);
-            statistics.save("average_creature_speed", creatures_manager.get_average_speed());*/
             statistics.save("population", "population", creatures_manager.list.length);
             statistics.save("food", "food", food_manager.list.length);
             statistics.save("creature_speed", "average", creatures_manager.get_average_speed());
             statistics.save("creature_speed", "minimum", creatures_manager.get_minimum_speed());
             statistics.save("creature_speed", "maximum", creatures_manager.get_maximum_speed());
         }
-        
+
         if (time < simulate_until) {
             creatures_manager.move();
             creatures_manager.eat();
             creatures_manager.check_energy();
-
 
             if (time % parameters_manager.get_value("food_growth_cycle") == 0) {
                 world.populate(0, parameters_manager.get_value("food_growth_amount"));
@@ -94,10 +84,10 @@ var simulation = {
 
 
             visualize();
-        
+
             time += 1;
             document.getElementById("current_time_label").innerText = time;
-        
+
             simulation.time_unit_timeout = setTimeout(simulation.time_unit, 1000/60);
         }
         else {
@@ -106,7 +96,7 @@ var simulation = {
             simulation_toggle_button.innerText = "Fortsetzen";
         }
     }
-}
+};
 
 
 
@@ -137,7 +127,7 @@ var world = {
 
         document.getElementById("environment").innerHTML = "";
     }
-}
+};
 
 
 
@@ -342,7 +332,6 @@ var food_manager = {
     create_new: function() {
         food_manager.id_counter++;
 
-
         var new_food = {
             id: food_manager.id_counter,
             position: {
@@ -353,13 +342,12 @@ var food_manager = {
 
         food_manager.list.push(new_food);
 
-
         new_food_div = document.createElement("div");
         new_food_div.classList.add("food");
         new_food_div.setAttribute("data-id", food_manager.id_counter);
         document.getElementById("environment").append(new_food_div);
     }
-}
+};
 
 
 

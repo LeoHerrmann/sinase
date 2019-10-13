@@ -1,6 +1,7 @@
 13.10.2019
-statistics.save wurde angepasst, sodass auf einer chart mehrere datasets angezeigt werden können
-auf der creature_speed-chart wird nun auch der Minimum- und Maximalwert angezeigt
+Statistics.save wurde angepasst, sodass auf einer chart mehrere datasets angezeigt werden können
+Auf der creature_speed-chart wird nun auch der Minimum- und Maximalwert angezeigt
+Cleanup
 
 12.10.2019
 Parametereingabevalidation
