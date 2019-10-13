@@ -210,8 +210,11 @@ h4 {
 
 
 
-
+#parameter_inputs_container > div + div {
+    margin-top: var(--space--3);
+}
 #error_container {
+    display: none;
     color: #F50;
 }
 #error_container > span {

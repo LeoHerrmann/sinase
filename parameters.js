@@ -1,6 +1,6 @@
 var parameters_manager = {
     fill_parameters_container: function() {
-        var parameters_container = document.getElementById("parameters_container");
+        var parameters_container = document.getElementById("parameter_inputs_container");
 
         for (parameter in parameters_manager.parameters) {
             let new_input_set = document.createElement("div");
@@ -21,59 +21,11 @@ var parameters_manager = {
             new_input_set.append(new_setting_input);
             parameters_container.append(new_input_set);
         }
-        
-        var error_container = "<div id='error_container'></div>";
-
-        var save_button = "<button class='primary' onclick='parameters_manager.save();'>Validieren und Speichern</button>";
-        
-        parameters_container.innerHTML += error_container + save_button;
-    },
-    
-    
-    validate: function() {
-        var errors_list = [];
-        
-        var input = {};
-        
-        for (let setting in parameters_manager.parameters) {            
-            var input_value = parseFloat(document.querySelector("#parameters_container input[name='" + setting + "_input']").value);
-            input[setting] = input_value;
-            
-            var minimum_allowed_value = parameters_manager.parameters[setting].min;
-            var maximum_allowed_value = parameters_manager.parameters[setting].max; 
-            
-            if (input_value < minimum_allowed_value) {
-                errors_list.push(setting + " muss mindestens " + minimum_allowed_value + " sein.");
-            }
-            else if (input_value > maximum_allowed_value) {
-                errors_list.push(setting + " darf höchstens " + maximum_allowed_value + " sein.");
-            }
-        }
-        
-        
-        if (input["creature_speed_min"] > input["creature_speed_max"]) {
-            errors_list.push("creature_speed_min darf nicht größer als creature_speed_max sein.");
-        }
-        
-        
-        var error_container = document.getElementById("error_container");
-        error_container.innerHTML = "";
-        
-        for (error of errors_list) {
-            var error_span = 
-                "<span>" + 
-                    error +
-                "</span>";
-                
-            error_container.innerHTML += error_span;
-        }
-        
-        return errors_list;
     },
 
 
     save: function() {
-        var errors_list = parameters_manager.validate();
+        var errors_list = validate();
     
         if (errors_list.length == 0) {
             for (setting in parameters_manager.parameters) {
@@ -82,6 +34,53 @@ var parameters_manager = {
             }
             
             ui.popup.hide();
+        }
+        
+        
+        function validate() {
+            var errors_list = [];
+        
+            var input = {};
+        
+            for (let setting in parameters_manager.parameters) {            
+                var input_value = parseFloat(document.querySelector("#parameters_container input[name='" + setting + "_input']").value);
+                input[setting] = input_value;
+            
+                var minimum_allowed_value = parameters_manager.parameters[setting].min;
+                var maximum_allowed_value = parameters_manager.parameters[setting].max; 
+            
+                if (input_value < minimum_allowed_value) {
+                    errors_list.push(setting + " muss mindestens " + minimum_allowed_value + " sein.");
+                }
+                else if (input_value > maximum_allowed_value) {
+                    errors_list.push(setting + " darf höchstens " + maximum_allowed_value + " sein.");
+                }
+            }
+        
+        
+            if (input["creature_speed_min"] > input["creature_speed_max"]) {
+                errors_list.push("creature_speed_min darf nicht größer als creature_speed_max sein.");
+            }
+        
+        
+            var error_container = document.getElementById("error_container");
+            
+            if (errors_list.length == 0) {
+                error_container.style.display = "none";
+            }
+            
+            else {
+                error_container.style.display = "block";
+                error_container.innerHTML = "<span>Es sind noch Fehler zu beheben, bevor die Parameter gespeichert werden können:</span>";
+                
+                for (error of errors_list) {
+                    var error_span = "<span>" + error + "</span>";
+
+                    error_container.innerHTML += error_span;
+                }
+            }
+        
+            return errors_list;
         }
     },
 
