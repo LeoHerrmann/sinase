@@ -1,3 +1,9 @@
+15.10.2019
+Creature Class
+move, eat und check_energy wurden von creatures_manager auf einzelne creatuers verschoben (ergibt mehr Sinn)
+Es gibt dafür im creatures_manager die Funktionen move_all_creatures, eat_all_creatures und check_energy_all_creatures
+Mit creatures_manager.create_new erscheinen Kreaturen irgendwo zufällig im Feld, anstatt am Rand, wenn es nicht durch properties überschrieben wird
+
 13.10.2019
 Statistics.save wurde angepasst, sodass auf einer chart mehrere datasets angezeigt werden können
 Auf der creature_speed-chart wird nun auch der Minimum- und Maximalwert angezeigt
