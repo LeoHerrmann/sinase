@@ -1,3 +1,9 @@
+16.10.2019
+Funktion für Energieverbrauch angepasst
+Neuer Parameter: size; Erhöht Wahrscheinlichkeit, Essen zu finden, erhöht aber Energieverbrauch
+Bugfixes: creature_manager.create_new: Fehler beim Berechnen des Durchschnitts der max und min Parameter einer Eigenschaft
+creatures_manager.move_all_creatures, -eat_all_creatures, -check_energy_all_creatures wurde entfernt, weil nicht länger benötigt
+
 15.10.2019
 Creature Class
 move, eat und check_energy wurden von creatures_manager auf einzelne creatuers verschoben (ergibt mehr Sinn)

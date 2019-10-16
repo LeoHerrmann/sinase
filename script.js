@@ -71,12 +71,17 @@ var simulation = {
             statistics.save("creature_speed", "average", creatures_manager.get_average_speed());
             statistics.save("creature_speed", "minimum", creatures_manager.get_minimum_speed());
             statistics.save("creature_speed", "maximum", creatures_manager.get_maximum_speed());
+            statistics.save("creature_size", "average", creatures_manager.get_average_size());
+            statistics.save("creature_size", "minimum", creatures_manager.get_minimum_size());
+            statistics.save("creature_size", "maximum", creatures_manager.get_maximum_size());
         }
 
         if (time < simulate_until) {
-            creatures_manager.move_all_creatures();
-            creatures_manager.eat_all_creatures();
-            creatures_manager.check_energy_all_creatures();
+            for (creature of creatures_manager.list) {
+                creature.move();
+                creature.eat();
+                creature.check_energy();
+            }
 
             if (time % parameters_manager.get_value("food_growth_cycle") == 0) {
                 world.populate(0, parameters_manager.get_value("food_growth_amount"));
@@ -133,12 +138,13 @@ var world = {
 
 
 class Creature {
-    constructor(id, position, direction, energy, speed) {
+    constructor(id, position, direction, energy, speed, size) {
         this.id = id;
         this.position = position;
         this.direction = direction;
         this.energy = energy;
-        this.speed = speed; 
+        this.speed = speed;
+        this.size = size;
     }
 
 
@@ -151,12 +157,12 @@ class Creature {
             if (this.position[type] < 0) {
                 this.position[type] = 0;
             }
-            if (this.position[type] > 98) {
-                this.position[type] = 98;
+            if (this.position[type] > 100 - this.size) {
+                this.position[type] = 100 - this.size; 
             }
         }
 
-        this.energy -= this.speed * parameters_manager.get_value("creature_energy_consumption");
+        this.energy -= 2 * this.speed + 2 * this.size + parameters_manager.get_value("creature_energy_consumption");
 
 
         function new_relative_position_x(direction, speed) {
@@ -173,8 +179,8 @@ class Creature {
 
     eat() {
         for (let food of food_manager.list) {
-            if (this.position.x < food.position.x + 1 && this.position.x + 2 > food.position.x &&
-                this.position.y < food.position.y + 1 && this.position.y + 2 > food.position.y
+            if (this.position.x < food.position.x + 1 && this.position.x + this.size > food.position.x &&
+                this.position.y < food.position.y + 1 && this.position.y + this.size > food.position.y
             ) {
                 this.energy += 100;
 
@@ -204,7 +210,8 @@ class Creature {
         var child_properties = {
             position: this.position,
             direction: this.direction,
-            speed: this.speed
+            speed: this.speed,
+            size: this.size
         };
 
 
@@ -219,7 +226,21 @@ class Creature {
         }
 
         child_properties.speed = randint(child_min_speed * 100, child_max_speed * 100) / 100;
+        
+        
+        var child_min_size = this.size - parseFloat(parameters_manager.get_value("creature_size_variation"));
+        var child_max_size = this.size + parseFloat(parameters_manager.get_value("creature_size_variation"));
 
+        if (child_min_size < parseFloat(parameters_manager.get_value("creature_size_min"))) {
+            child_min_size = parseFloat(parameters_manager.get_value("creature_size_min"));
+        }
+        if (child_max_size > parseFloat(parameters_manager.get_value("creature_size_max"))) {
+            child_max_size = parseFloat(parameters_manager.get_value("creature_size_max"));
+        }
+
+        child_properties.size = randint(child_min_size * 100, child_max_size * 100) / 100;
+        
+        
         creatures_manager.create_new(JSON.parse(JSON.stringify(child_properties)));
 
         this.energy -= parameters_manager.get_value("creature_start_energy");
@@ -252,15 +273,16 @@ var creatures_manager = {
         var new_position = {};
         var new_direction;
         var new_energy = parameters_manager.get_value("creature_start_energy");
-        var new_speed = parameters_manager.get_value("creature_speed_min") + parameters_manager.get_value("creature_speed_max") / 2;  
+        var new_speed = (parameters_manager.get_value("creature_speed_min") + parameters_manager.get_value("creature_speed_max")) / 2;
+        var new_size = (parameters_manager.get_value("creature_size_min") + parameters_manager.get_value("creature_size_max")) / 2;
 
 
-        new_position["x"] = randint(0, 98);
-        new_position["y"] = randint(0, 98);
+        new_position["x"] = randint(0, 100 - new_size);
+        new_position["y"] = randint(0, 100 - new_size);
         new_direction = randint(0, 360);
 
 
-        var new_creature = new Creature(new_id, new_position, new_direction, new_energy, new_speed);
+        var new_creature = new Creature(new_id, new_position, new_direction, new_energy, new_speed, new_size);
 
 
         for (let property in properties) {
@@ -271,35 +293,14 @@ var creatures_manager = {
         creatures_manager.list.push(new_creature);
 
 
-        new_creature_div = document.createElement("div");
+        new_creature_div = document.createElement("div"); 
         new_creature_div.classList.add("creature");
         new_creature_div.setAttribute("data-id", creatures_manager.id_counter);
+        new_creature_div.style.width = new_creature.size + "%";
+        new_creature_div.style.height = new_creature.size + "%";
         document.getElementById("environment").append(new_creature_div);
     },
 
-
-
-    move_all_creatures: function() {
-        for (creature of creatures_manager.list) {
-            creature.move();
-        }
-    },
-
-
-
-    eat_all_creatures: function() {
-        for (creature of creatures_manager.list) {
-            creature.eat();
-        }
-    },
-
-
-
-    check_energy_all_creatures: function() {
-        for (creature of creatures_manager.list) {
-            creature.check_energy();
-        }
-    },
 
 
 
@@ -333,6 +334,43 @@ var creatures_manager = {
         for (creature of creatures_manager.list) {
             if (creature.speed > maximum) {
                 maximum = creature.speed;
+            }
+        }
+
+        return maximum;
+    },
+    
+    
+    get_average_size: function() {
+        var average = 0;
+
+        for (creature of creatures_manager.list) {
+            average += creature.size;
+        }
+
+        average /= creatures_manager.list.length;
+
+        return average;
+    },
+
+    get_minimum_size: function() {
+        var minimum = creatures_manager.list[0].size;
+
+        for (creature of creatures_manager.list) {
+            if (creature.size < minimum) {
+                minimum = creature.size;
+            }
+        }
+
+        return minimum;
+    },
+
+    get_maximum_size: function() {
+        var maximum = creatures_manager.list[0].size;
+
+        for (creature of creatures_manager.list) {
+            if (creature.size > maximum) {
+                maximum = creature.size;
             }
         }
 
