@@ -92,6 +92,13 @@ var parameters_manager = {
 
 
     parameters: {
+        simulation_visualization_interval: {
+            value: 100,
+            type: "number",
+            min: 1,
+            step: 1
+        },
+
         food_growth_cycle: {
             value: 10,
             type: "number",

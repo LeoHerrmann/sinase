@@ -18,7 +18,7 @@ var simulation = {
         simulate_until = document.querySelector("input[name='simulate_until_input']").value;
         time = 0;
 
-        simulation.time_unit_timeout = setTimeout(simulation.time_unit, 1000/60);
+        simulation.time_unit_timeout = setTimeout(simulation.time_unit, 0);
 
         var simulation_toggle_button = document.getElementById("simulation_toggle_button");
         simulation_toggle_button.onclick = simulation.stop;
@@ -38,7 +38,9 @@ var simulation = {
     continue: function() {
         simulate_until = document.querySelector("input[name='simulate_until_input']").value;
 
-        simulation.time_unit_timeout = setTimeout(simulation.time_unit, 1000/60);
+        //simulation.time_unit_timeout = setTimeout(simulation.time_unit, 1000/60);
+        simulation.time_unit_timeout = setTimeout(simulation.time_unit, 0);
+        //simulation.time_unit();
 
         var simulation_toggle_button = document.getElementById("simulation_toggle_button");
         simulation_toggle_button.onclick = simulation.stop;
@@ -88,12 +90,14 @@ var simulation = {
             }
 
 
-            visualize();
+            if (time % parameters_manager.get_value("simulation_visualization_interval") == 0) {
+                visualize();
+            }
 
             time += 1;
             document.getElementById("current_time_label").innerText = time;
 
-            simulation.time_unit_timeout = setTimeout(simulation.time_unit, 1000/60);
+            simulation.time_unit_timeout = setTimeout(simulation.time_unit, 0);
         }
         else {
             var simulation_toggle_button = document.getElementById("simulation_toggle_button");
@@ -122,7 +126,7 @@ var world = {
             food_manager.create_new();
         }
 
-        visualize();
+        //visualize();
     },
 
 
