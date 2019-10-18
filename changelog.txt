@@ -1,3 +1,6 @@
+18.10.2019
+Anpassung von Parametern und Gewichten
+
 17.10.2019
 Time_unit-Interval ist 0 statt 1000/60
 Es wird nicht mehr jede time_unit visualisiert, sondern nur noch alle paar

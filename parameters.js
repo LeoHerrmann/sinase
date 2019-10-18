@@ -100,14 +100,14 @@ var parameters_manager = {
         },
 
         food_growth_cycle: {
-            value: 10,
+            value: 5,
             type: "number",
             min: 0,
             step: 1
         },
 
         food_growth_amount: {
-            value: 15,
+            value: 50,
             type: "number",
             min: 0,
             step: 1
@@ -121,14 +121,14 @@ var parameters_manager = {
         },
 
         creature_energy_consumption: {
-            value: 0,
+            value: 1,
             type: "number",
             min: 0,
             step: 1
         },
 
         creature_speed_max: {
-            value: 2,
+            value: 4,
             type: "number",
             min: 0.25,
             max: 4,
@@ -144,7 +144,7 @@ var parameters_manager = {
         },
 
         creature_speed_variation: {
-            value: 0.5,
+            value: 0.2,
             type: "number",
             min: 0,
             max: 2,
@@ -169,7 +169,7 @@ var parameters_manager = {
         },
 
         creature_size_variation: {
-            value: 0.5,
+            value: 0.2,
             type: "number",
             min: 0,
             max: 2,

@@ -38,9 +38,7 @@ var simulation = {
     continue: function() {
         simulate_until = document.querySelector("input[name='simulate_until_input']").value;
 
-        //simulation.time_unit_timeout = setTimeout(simulation.time_unit, 1000/60);
         simulation.time_unit_timeout = setTimeout(simulation.time_unit, 0);
-        //simulation.time_unit();
 
         var simulation_toggle_button = document.getElementById("simulation_toggle_button");
         simulation_toggle_button.onclick = simulation.stop;
@@ -100,6 +98,7 @@ var simulation = {
             simulation.time_unit_timeout = setTimeout(simulation.time_unit, 0);
         }
         else {
+            visualize();
             var simulation_toggle_button = document.getElementById("simulation_toggle_button");
             simulation_toggle_button.onclick = simulation.continue;
             simulation_toggle_button.innerText = "Fortsetzen";
@@ -166,7 +165,7 @@ class Creature {
             }
         }
 
-        this.energy -= 2 * this.speed + 2 * this.size + parameters_manager.get_value("creature_energy_consumption");
+        this.energy -= 1.3 * this.speed + 8 * this.size + parameters_manager.get_value("creature_energy_consumption");
 
 
         function new_relative_position_x(direction, speed) {
