@@ -165,7 +165,8 @@ class Creature {
             }
         }
 
-        this.energy -= 1.3 * this.speed + 8 * this.size + parameters_manager.get_value("creature_energy_consumption");
+        //this.energy -= 1.3 * this.speed + 8 * this.size + parameters_manager.get_value("creature_energy_consumption");
+        this.energy -= 0.2 * this.speed ** 2 + 0.2 * this.size ** 3;
 
 
         function new_relative_position_x(direction, speed) {

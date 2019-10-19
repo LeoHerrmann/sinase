@@ -12,6 +12,7 @@ var statistics = {
             statistics_container.append(new_chart_container);
             new_chart_container.append(new_chart_container_heading);
             new_chart_container.append(new_chart_container_chart);
+            new_chart_container.classList.add("chart_container");
             new_chart_container_heading.innerText = chart_name;
 
             var new_chart = new Chart(new_chart_container_chart, {
