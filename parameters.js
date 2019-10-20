@@ -97,6 +97,13 @@ var parameters_manager = {
             min: 1,
             step: 1
         },
+        
+        statistics_log_interval: {
+            value: 500,
+            type: "number",
+            min: 100,
+            step: 1
+        },
 
         food_growth_cycle: {
             value: 15,

@@ -3,6 +3,7 @@ English translation
 Adjustment of default parameters
 Replaced "X" with icon-cancel
 Bugfix: Reset function wouldn't update current_time_label
+Variable statistics_log_interval
 
 19.10.2019
 bugfix: statistics.clear()

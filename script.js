@@ -67,7 +67,8 @@ var simulation = {
 
 
     time_unit: function() {
-        if (time % 100 === 0) {
+        //if (time % 500 === 0) {
+        if (time % parameters_manager.get_value("statistics_log_interval") === 0) {
             statistics.save("population", "population", creatures_manager.list.length);
             statistics.save("food", "food", food_manager.list.length);
             statistics.save("creature_speed", "average", creatures_manager.get_average_speed());
@@ -412,7 +413,6 @@ var food_manager = {
         document.getElementById("environment").append(new_food_div);
     }
 };
-
 
 
 
