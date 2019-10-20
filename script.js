@@ -54,6 +54,8 @@ var simulation = {
 
         world.clear();
         statistics.clear();
+        
+        document.getElementById("current_time_label").innerText = time;
 
         var simulation_toggle_button = document.getElementById("simulation_toggle_button");
         simulation_toggle_button.onclick = simulation.start;
