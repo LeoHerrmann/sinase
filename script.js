@@ -22,7 +22,7 @@ var simulation = {
 
         var simulation_toggle_button = document.getElementById("simulation_toggle_button");
         simulation_toggle_button.onclick = simulation.stop;
-        simulation_toggle_button.innerText = "Anhalten";
+        simulation_toggle_button.innerText = "Stop";
     },
 
 
@@ -31,7 +31,7 @@ var simulation = {
 
         var simulation_toggle_button = document.getElementById("simulation_toggle_button");
         simulation_toggle_button.onclick = simulation.continue;
-        simulation_toggle_button.innerText = "Fortsetzen";
+        simulation_toggle_button.innerText = "Continue";
     },
 
 
@@ -42,7 +42,7 @@ var simulation = {
 
         var simulation_toggle_button = document.getElementById("simulation_toggle_button");
         simulation_toggle_button.onclick = simulation.stop;
-        simulation_toggle_button.innerText = "Anhalten";
+        simulation_toggle_button.innerText = "Stop";
     },
 
 
@@ -57,7 +57,7 @@ var simulation = {
 
         var simulation_toggle_button = document.getElementById("simulation_toggle_button");
         simulation_toggle_button.onclick = simulation.start;
-        simulation_toggle_button.innerText = "Starten";
+        simulation_toggle_button.innerText = "Start";
     },
 
 
@@ -101,7 +101,7 @@ var simulation = {
             visualize();
             var simulation_toggle_button = document.getElementById("simulation_toggle_button");
             simulation_toggle_button.onclick = simulation.continue;
-            simulation_toggle_button.innerText = "Fortsetzen";
+            simulation_toggle_button.innerText = "Continue";
         }
     }
 };
