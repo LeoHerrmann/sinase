@@ -86,7 +86,6 @@ var parameters_manager = {
 
 
     get_value: function(setting) {
-        //return parameters_manager.parameters[setting].value;
         return parseFloat(parameters_manager.parameters[setting].value);
     },
 
@@ -120,15 +119,8 @@ var parameters_manager = {
             step: 1
         },
 
-        /*creature_energy_consumption: {
-            value: 1,
-            type: "number",
-            min: 0,
-            step: 1
-        },*/
-
         creature_speed_max: {
-            value: 3,
+            value: 4,
             type: "number",
             min: 0.25,
             max: 4,
@@ -144,7 +136,7 @@ var parameters_manager = {
         },
 
         creature_speed_variation: {
-            value: 0.2,
+            value: 0,
             type: "number",
             min: 0,
             max: 2,
@@ -153,7 +145,7 @@ var parameters_manager = {
 
 
         creature_size_max: {
-            value: 3,
+            value: 4,
             type: "number",
             min: 0.5,
             max: 4,
@@ -169,7 +161,7 @@ var parameters_manager = {
         },
 
         creature_size_variation: {
-            value: 0.2,
+            value: 0,
             type: "number",
             min: 0,
             max: 2,
