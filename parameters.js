@@ -92,7 +92,7 @@ var parameters_manager = {
 
     parameters: {
         simulation_visualization_interval: {
-            value: 100,
+            value: 1,
             type: "number",
             min: 1,
             step: 1
