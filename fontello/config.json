@@ -1,5 +1,5 @@
 {
-  "name": "fontello",
+  "name": "",
   "css_prefix_text": "icon-",
   "css_use_suffix": false,
   "hinting": true,
@@ -19,15 +19,21 @@
       "src": "fontawesome"
     },
     {
+      "uid": "21b42d3c3e6be44c3cc3d73042faa216",
+      "css": "parameters",
+      "code": 61918,
+      "src": "fontawesome"
+    },
+    {
       "uid": "266d5d9adf15a61800477a5acf9a4462",
       "css": "statistics",
       "code": 59394,
       "src": "fontawesome"
     },
     {
-      "uid": "21b42d3c3e6be44c3cc3d73042faa216",
-      "css": "parameters",
-      "code": 61918,
+      "uid": "5211af474d3a9848f67f945e2ccaf143",
+      "css": "cancel",
+      "code": 59395,
       "src": "fontawesome"
     }
   ]

@@ -1,6 +1,7 @@
 20.10.2019
 English translation
 Adjustment of default parameters
+Replaced "X" with icon-cancel
 
 19.10.2019
 bugfix: statistics.clear()
