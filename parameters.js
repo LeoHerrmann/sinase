@@ -106,14 +106,14 @@ var parameters_manager = {
         },
 
         food_growth_cycle: {
-            value: 10,
+            value: 1,
             type: "number",
             min: 0,
             step: 1
         },
 
         food_growth_amount: {
-            value: 20,
+            value: 2,
             type: "number",
             min: 0,
             step: 1
