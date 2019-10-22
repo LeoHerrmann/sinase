@@ -106,21 +106,21 @@ var parameters_manager = {
         },
 
         food_growth_cycle: {
-            value: 15,
-            type: "number",
-            min: 0,
-            step: 1
-        },
-
-        food_growth_amount: {
             value: 10,
             type: "number",
             min: 0,
             step: 1
         },
 
+        food_growth_amount: {
+            value: 20,
+            type: "number",
+            min: 0,
+            step: 1
+        },
+
         creature_start_energy: {
-            value: 400,
+            value: 500,
             type: "number",
             min: 0,
             step: 1

@@ -1,3 +1,7 @@
+22.10.2019
+Disabled animations of charts as they had a major impact on performance
+Adjusted default parameters
+
 20.10.2019
 English translation
 Adjustment of default parameters

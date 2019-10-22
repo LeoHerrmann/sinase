@@ -20,6 +20,11 @@ var statistics = {
                 data: {
                     labels: [],
                     datasets: []
+                },
+                options: {
+                    animation: {
+                        duration: 0
+                    }
                 }
             });
 
