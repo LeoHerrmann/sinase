@@ -1,3 +1,7 @@
+24.10.2019
+Bugfix: Time would not run if there were no creatures
+Creatures can eat other creatures if their size is at least 1.3 times bigger
+
 22.10.2019
 Disabled animations of charts as they had a major impact on performance
 Adjusted default parameters

@@ -67,7 +67,6 @@ var simulation = {
 
 
     time_unit: function() {
-        //if (time % 500 === 0) {
         if (time % parameters_manager.get_value("statistics_log_interval") === 0) {
             statistics.save("population", "population", creatures_manager.list.length);
             statistics.save("food", "food", food_manager.list.length);
@@ -127,8 +126,6 @@ var world = {
         for (let i = 0; i < food_count; i++) {
             food_manager.create_new();
         }
-
-        //visualize();
     },
 
 
@@ -168,7 +165,6 @@ class Creature {
             }
         }
 
-        //this.energy -= 1.3 * this.speed + 8 * this.size + parameters_manager.get_value("creature_energy_consumption");
         this.energy -= 0.2 * this.speed ** 2 + 0.2 * this.size ** 3;
 
 
@@ -179,8 +175,8 @@ class Creature {
         function new_relative_position_y(direction, speed) {
             return speed * Math.cos((Math.PI / 180) * direction);
         }
-        
-        return this.position
+
+        return this.position;
     }
 
 
@@ -196,6 +192,26 @@ class Creature {
                     if (food_manager.list[i].id == food.id) {
                         food_manager.list.splice(i, 1);
                         break;
+                    }
+                }
+            }
+        }
+
+
+        for (let creature of creatures_manager.list) {
+            if (this.size > 1.3 * creature.size) {
+                if (this.position.x < creature.position.x + creature.size && this.position.x + this.size > creature.position.x &&
+                    this.position.y < creature.position.y + creature.size && this.position.y + this.size > creature.position.y
+                ) {
+                    this.energy += creature.energy;
+
+                    document.querySelector(".creature[data-id='" + creature.id + "']").remove();
+
+                    for (let i = 0; i < creatures_manager.list.length; i++) {
+                        if (creatures_manager.list[i].id == creature.id) {
+                            creatures_manager.list.splice(i, 1);
+                            break;
+                        }
                     }
                 }
             }
@@ -324,6 +340,10 @@ var creatures_manager = {
     },
 
     get_minimum_speed: function() {
+        if (creatures_manager.list.length == 0) {
+            return;
+        }
+        
         var minimum = creatures_manager.list[0].speed;
 
         for (creature of creatures_manager.list) {
@@ -336,6 +356,10 @@ var creatures_manager = {
     },
 
     get_maximum_speed: function() {
+        if (creatures_manager.list.length == 0) {
+            return;
+        }
+    
         var maximum = creatures_manager.list[0].speed;
 
         for (creature of creatures_manager.list) {
@@ -346,8 +370,8 @@ var creatures_manager = {
 
         return maximum;
     },
-    
-    
+
+
     get_average_size: function() {
         var average = 0;
 
@@ -361,6 +385,10 @@ var creatures_manager = {
     },
 
     get_minimum_size: function() {
+        if (creatures_manager.list.length == 0) {
+            return;
+        }
+
         var minimum = creatures_manager.list[0].size;
 
         for (creature of creatures_manager.list) {
@@ -373,6 +401,10 @@ var creatures_manager = {
     },
 
     get_maximum_size: function() {
+        if (creatures_manager.list.length == 0) {
+            return;
+        }
+        
         var maximum = creatures_manager.list[0].size;
 
         for (creature of creatures_manager.list) {
