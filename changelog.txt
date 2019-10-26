@@ -1,3 +1,7 @@
+27.10.2019
+Formula for energy consumption corrected
+Adjustment of default parameters
+
 24.10.2019
 Bugfix: Time would not run if there were no creatures
 Creatures can eat other creatures if their size is at least 1.3 times bigger
@@ -11,117 +15,115 @@ English translation
 Adjustment of default parameters
 Replaced "X" with icon-cancel
 Bugfix: Reset function wouldn't update current_time_label
-Variable statistics_log_interval
+statistics_log_interval is now adjustable
 
 19.10.2019
 bugfix: statistics.clear()
-Energieverbrauch ist nur quadratisch abhängig von speed und kubisch abhängig von size (E = 1 / 2 * m * v²) 
+Energy consumption is now only dependent from speed and size (E = 1/2 * mass * speed² = 1/2 * size³ * speed²)  
 
 18.10.2019
-Anpassung von Parametern und Gewichten
+Adjustment of parameters and weights
 
 17.10.2019
-Time_unit-Interval ist 0 statt 1000/60
-Es wird nicht mehr jede time_unit visualisiert, sondern nur noch alle paar
-time_unit-visualisierungsinterval kann über parameters_container eingestellt werden
+time_unit interval is 0 instead of 1000/60
+time_unit-visualisation interval is now adjustable
 
 16.10.2019
-Funktion für Energieverbrauch angepasst
-Neuer Parameter: size; Erhöht Wahrscheinlichkeit, Essen zu finden, erhöht aber Energieverbrauch
-Bugfixes: creature_manager.create_new: Fehler beim Berechnen des Durchschnitts der max und min Parameter einer Eigenschaft
-creatures_manager.move_all_creatures, -eat_all_creatures, -check_energy_all_creatures wurde entfernt, weil nicht länger benötigt
+Function for energy consumption was adjusted
+New paremter: size: increased probability of finding food, increased energy consumption
+Bugfix: creatures_manager.create_new: Calculation of average of maximum and minimum of a parameter was faulty
+
 
 15.10.2019
 Creature Class
-move, eat und check_energy wurden von creatures_manager auf einzelne creatuers verschoben (ergibt mehr Sinn)
-Es gibt dafür im creatures_manager die Funktionen move_all_creatures, eat_all_creatures und check_energy_all_creatures
-Mit creatures_manager.create_new erscheinen Kreaturen irgendwo zufällig im Feld, anstatt am Rand, wenn es nicht durch properties überschrieben wird
+move(), eat(), and check_energy were relocated from creatures_manager to individual creatures
+creatures_manager.create_new() puts creatures to a random location in the environment instead of onto the border
 
 13.10.2019
-Statistics.save wurde angepasst, sodass auf einer chart mehrere datasets angezeigt werden können
-Auf der creature_speed-chart wird nun auch der Minimum- und Maximalwert angezeigt
+Statistics.save was adjusted so that multiple datasets can be shown using one chart
+Minimum and maximum speed are now also shown on creature_speed chart
 Cleanup
 
 12.10.2019
-Parametereingabevalidation
+Validation of input parameters
 
 29.09.2019
 Lining figures
-Zeitmessung ohne Tage
+Time is no longer measured in days as this is unnecessary
 
 28.09.2019
-Neues Layout
+New and simpler Layout
 
 09.09.2019
-Mindest- und Höchstgeschwindigkeit einstellbar
-Geschwindigkeitsvariationen zwischen Generationen einstellbar
+Minimum and maximum speed are now adjustable
+Degree of mutation of speed are now adjustable
 
 07.09.2019
-Styleverbesserungen und -korrekturen
-Titel auf Sinase! (Simulate Natural Selection) geändert; Vorheriger war zu lang
+Style enhancements and -corrections
+Changed title to "Sinase!" (Simulate Natural Selection!)
 
 06.09.2019
-Styleverbesserungen und -korrekturen
+Style enhancements and -corrections
 
 05.09.2019
 manifest.json
 
 29.08.2019
-Roboto durch Raleway ersetzt
-Modular scale ratio von 1.25 auf 1.2 verringert
+Replaced Roboto with Raleway
+Modular scale ratio decreased from 1.25 to 1.2
 
 28.08.2019
-Margins und Paddings verbessert
+Adjustment of margins and paddings
 
 07.08.2019
-UI Anpassungen
-Tab Design vom Kontrollzentrum verbessert
+UI Enhancements
+Tab design of control center improved
 
 21.07.2019
-Erscheinungsbild von Buttons
-Header ändert Größe in Abhängigkeit zur Scrollposition
+Appearance of buttons
+Header changes size in dependence to scroll position
 
 20.07.2019
-Simulation kann angehalten, fortgesetzt und zurückgesetzt werden
+Time can be stopped, continued and resetted
 
 19.07.2019
-Standardwerte wurden angepasst, sodass sie sich nach genügend Tagen relativ konstant werden
-Energieverbrauch für Bewegung und Fortpflanzung kann eingestellt werden
-Designkorrekturen, vor allem am Kontrollzentrum
+Adjustment of default values, so population and food become constant after a while
+Energy consumption of movement and multiplication can be set
+Design correction, especially in control center
 
 15.07.2019
-Implementierung der Modular Scale
+Implementation of modular scale
 
 13.07.2019
-Kleine Verbesserungen am Layout
-Neue Statistik: Durchschnittsgeschwindigkeit der Kreaturen
+Small enhancements to layout
+New statistics: Average speed of creatures
 
 12.07.2019
-Visualisierung der Statistik mit Chart.js
-Seite stellt auf Tabellenansicht um, wenn Bildschirm groß genug ist
+Visualization of statistics using chart.js
+Application will change over to table view if screen is large enough
 
 08.07.2019
-Statistik
+Statistics
 
 07.07.2019
-Essen entsteht nicht mehr am Ende eines Tages sondern in gleichmäßigen Abständen während eines Tages
-Benutzeroberfläche: Control Center als Popup
+Food now appears in regular intervals during days and no longer at the end of a day
+UI: Control center is now a popup
 
 06.07.2019
-Nachfolger von Kreaturen erscheinen nicht mehr am Rand, sondern bei ihren Eltern
-Geschwindigkeit kann sich über Generationen verändern
-Über die Benutzeroberfläche können automatisch mehrere Tage hintereinander simuliert werden
+Children of creatures now appear at their parent's location instead of the border
+Mutation of speed possible
+Using UI, multiple days can be simulated in a row
 
 05.07.2019
-Weniger zufälligere Bewegung der Kreaturen durch eingeschränkte Richtungsänderung
-Kreaturen sterben bei zu wenig Energie
-Kreaturen vermehren sich bei genug Energie
-Organisation des Quellcodes in Objekte
-Über Benutzeroberfläche lassen sich Einstellungen vornehmen
+Limited direction change leads to less random motions of creatures
+Creatures will die when they run out of energy
+Creatures will multiply when they have enough energy
+Organization of code into objects
+Settings can be carried out using user interface
 
 04.07.2019
-Kreaturen können essen
+Creatures can eat
 
 03.07.2019
-Kreaturen und Essen werden erstellt
-Kreaturen können sich bewegen
+Creatures and food are created
+Creatures can move

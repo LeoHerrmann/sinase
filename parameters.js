@@ -113,7 +113,7 @@ var parameters_manager = {
         },
 
         food_growth_amount: {
-            value: 2,
+            value: 1,
             type: "number",
             min: 0,
             step: 1
