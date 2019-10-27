@@ -12,7 +12,7 @@
         <script src="parameters.js"></script>
         <script src="statistics.js"></script>
         <script src="ui.js"></script>
-        
+
         <link rel="manifest" href="manifest.json"/>
 		<meta name="theme-color" content="#07B"/>
 		<meta name="apple-mobile-web-app-capable" content="yes">
@@ -22,24 +22,18 @@
     </head>
 
     <body>
-        <div id="placeholder"></div>
-    
         <header>
             <h1>Sinase!</h1>
         </header>
-        
+
+
+
         <div class="placeholder"></div>
 
 
 
-
-
-        <div id="main">
-            <div id="simulation_container">
-                <div id="environment"></div>
-            </div>
-
-
+        <div id="simulation_container">
+            <div id="environment"></div>
 
             <div id="button_container">
                 <button class="icon-population" onclick="ui.popup.show('population_container')"></button>
@@ -47,76 +41,76 @@
                 <button class="icon-parameters" onclick="ui.popup.show('parameters_container')"></button>
                 <button class="icon-statistics" onclick="ui.popup.show('statistics_container')"></button>
             </div>
+        </div>
 
 
 
-            <div id="overlay" onclick="ui.popup.hide();"></div>
+        <div id="overlay" onclick="ui.popup.hide();"></div>
 
 
 
-            <div id="population_container" class="popup">
-                <div class="popup_header">
-                    <h2>Population</h2>
-                    <button class="negative icon-cancel" onclick="ui.popup.hide();"></button>
-                </div>
-
-                <div class="input_set">
-                    <label for="new_creature_count_input">Generate creatures: </label>
-                    <input id="new_creature_count_input" name="new_creature_count_input" type="number" value="5"> 
-                </div>
-
-                <div class="input_set">
-                    <label for="new_food_count_input">Generate food: </label>
-                    <input id="new_food_count_input" name="new_food_count_input" type="number" value="0"/>
-                </div>
-
-                <button class="primary" onclick="world.populate(); visualize(); ui.popup.hide();">Execute</button>
+        <div id="population_container" class="popup">
+            <div class="popup_header">
+                <h2>Population</h2>
+                <button class="negative icon-cancel" onclick="ui.popup.hide();"></button>
             </div>
 
-
-
-            <div id="time_container" class="popup">
-                <div class="popup_header">
-                    <h2>Time</h2>
-                    <button class="negative icon-cancel" onclick="ui.popup.hide();"></button>
-                </div>
-            
-                <div>
-                    <span>Current time:</span>
-                    <span id="current_time_label">0</span>
-                </div>
-            
-                <div class="input_set">
-                    <label for="simulate_until_input">Simulate until:</label>
-                    <input id="simulate_until_input" name="simulate_until_input" type="number" value="10000"/> 
-                </div>
-
-                <button id="simulation_toggle_button" class="primary" onclick="simulation.start(); ui.popup.hide();">Start</button>
-                <button onclick="simulation.reset();">Reset</button>
-            </div> 
-
-
-
-            <div id="parameters_container" class="popup">
-                <div class="popup_header">
-                    <h2>Parameters</h2>
-                    <button class="negative icon-cancel" onclick="ui.popup.hide();"></button>
-                </div>
-                
-                <div id="parameter_inputs_container"></div>
-                
-                <div id="error_container"></div>
-                
-                <button class="primary" onclick="parameters_manager.save();">Validate and save</button>
+            <div class="input_set">
+                <label for="new_creature_count_input">Generate creatures: </label>
+                <input id="new_creature_count_input" name="new_creature_count_input" type="number" value="5"> 
             </div>
 
+            <div class="input_set">
+                <label for="new_food_count_input">Generate food: </label>
+                <input id="new_food_count_input" name="new_food_count_input" type="number" value="0"/>
+            </div>
+
+            <button class="primary" onclick="world.populate(); visualize(); ui.popup.hide();">Execute</button>
+        </div>
 
 
-            <div id="statistics_container" class="popup">
-                <div class="popup_header">
-                    <h2>Statistics</h2>
-                    <button class="negative icon-cancel" onclick="ui.popup.hide();"></button>
-                </div>
+
+        <div id="time_container" class="popup">
+            <div class="popup_header">
+                <h2>Time</h2>
+                <button class="negative icon-cancel" onclick="ui.popup.hide();"></button>
+            </div>
+
+            <div>
+                <span>Current time:</span>
+                <span id="current_time_label">0</span>
+            </div>
+
+            <div class="input_set">
+                <label for="simulate_until_input">Simulate until:</label>
+                <input id="simulate_until_input" name="simulate_until_input" type="number" value="10000"/> 
+            </div>
+
+            <button id="simulation_toggle_button" class="primary" onclick="simulation.start(); ui.popup.hide();">Start</button>
+            <button onclick="simulation.reset();">Reset</button>
+        </div> 
+
+
+
+        <div id="parameters_container" class="popup">
+            <div class="popup_header">
+                <h2>Parameters</h2>
+                <button class="negative icon-cancel" onclick="ui.popup.hide();"></button>
+            </div>
+
+            <div id="parameter_inputs_container"></div>
+
+            <div id="error_container"></div>
+
+            <button class="primary" onclick="parameters_manager.save();">Validate and save</button>
+        </div>
+
+
+
+        <div id="statistics_container" class="popup">
+            <div class="popup_header">
+                <h2>Statistics</h2>
+                <button class="negative icon-cancel" onclick="ui.popup.hide();"></button>
             </div>
         </div>
     </body>

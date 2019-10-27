@@ -19,7 +19,7 @@
 
 
 :root {
-    --ratio: 1.20;
+    --ratio: 1.2;
     --space--4: calc(var(--space--3) / var(--ratio));
     --space--3: calc(var(--space--2) / var(--ratio));
     --space--2: calc(var(--space--1) / var(--ratio));
@@ -31,6 +31,8 @@
     --space-4: calc(var(--space-3) * var(--ratio));
     --space-5: calc(var(--space-4) * var(--ratio));
     --space-6: calc(var(--space-5) * var(--ratio));
+    --space-7: calc(var(--space-6) * var(--ratio));
+    --space-8: calc(var(--space-7) * var(--ratio));
 }
 
 
@@ -226,57 +228,54 @@ h4 {
 
 
 
-#placeholder {
-    height: var(--space-3);
-    display: none;
-}
+
 
 header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
+    height: var(--space-7);
 
-    display: grid;
-    grid-template-columns: 1fr var(--space-3);
-    align-items: center;
-    padding: var(--space-0) var(--space--3);
+    padding: 0 var(--space--3);
     box-sizing: border-box;
     z-index: 10;
-    
+
     border-bottom: 1px solid #DDD;
     background: #FFF;
-    transition: padding 0.3s;
 }
 header + .placeholder {
-    height: calc(var(--space-3) + 2 * var(--space-0));
+    height: var(--space-7);
 }
 header > h1 {
-    line-height: var(--space-3);
+    line-height: var(--space-7);
 }
 
 
 
 
 
-#simulation_container, #button_container {
-    padding: var(--space--3);
-    max-width:500px;
+#simulation_container {
+    max-width: 600px;
     margin: var(--space--3) auto auto auto;
-    
     border: 1px solid #DDD;
     border-radius: 4px;
     background-color: #FFF;
 }
 
 
+#simulation_container {
+    padding: var(--space--3);
+    box-sizing: border-box;
+}
+
 
 #environment {
-    position:relative;
-    width:100%;
-    height:0;
-    padding-bottom:100%;
-    background-color:#EEE;
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    background-color: #EEE;
 }
 
 #environment > .creature {
@@ -293,25 +292,18 @@ header > h1 {
     background-color:#F70;
 }
 
-#environment + .input_set {
-    margin-top: var(--space--3);
-}
 
 
 
 #button_container {
     margin-top: var(--space--3);
     display: flex;
-    padding: var(--space--3);
-    background-color: #FFF;
-    border: 1px solid #DDD;
-    border-radius: 4px;
+    justify-content: space-around;
 }
 #button_container > button {
-    flex-grow: 1;
-    height: var(--space-6);
+    height: var(--space-5);
+    width: var(--space-7);
+    padding: 0;
+    border: 0;
     font-size: var(--space-1);
-}
-#button_container > button + button {
-    margin-left: var(--space--3);
 }
