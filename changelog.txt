@@ -1,3 +1,6 @@
+30.10.2019
+Small UI improvements
+
 27.10.2019
 Improved layout
 Removed obsolete html and css
