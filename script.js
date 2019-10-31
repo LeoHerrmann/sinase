@@ -165,7 +165,7 @@ class Creature {
             }
         }
 
-        this.energy -= ((0.2 * this.speed) ** 2) * ((1 * this.size) ** 3);
+        this.energy -= 0.05 * (this.speed ** 2) * 1 * (this.size ** 3);
 
 
         function new_relative_position_x(direction, speed) {

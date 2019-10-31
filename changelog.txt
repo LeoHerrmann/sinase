@@ -1,5 +1,6 @@
 31.10.2019
 Parameter names improved
+Energy consumption formula simplified (result is still the same)
 
 30.10.2019
 Small UI improvements
