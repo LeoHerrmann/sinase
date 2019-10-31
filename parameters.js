@@ -50,16 +50,20 @@ var parameters_manager = {
                 var maximum_allowed_value = parameters_manager.parameters[setting].max; 
 
                 if (input_value < minimum_allowed_value) {
-                    errors_list.push(setting + " muss mindestens " + minimum_allowed_value + " sein.");
+                    errors_list.push(setting + " must be higher or equal to " + minimum_allowed_value + ".");
                 }
                 else if (input_value > maximum_allowed_value) {
-                    errors_list.push(setting + " darf höchstens " + maximum_allowed_value + " sein.");
+                    errors_list.push(setting + " must be lower or equal to " + maximum_allowed_value + ".");
                 }
             }
 
 
             if (input["creature_speed_min"] > input["creature_speed_max"]) {
-                errors_list.push("creature_speed_min darf nicht größer als creature_speed_max sein.");
+                errors_list.push("creature_speed_min must be lower or equal to creature_speed_max.");
+            }
+
+            if (input["creature_size_min"] > input["creature_size_max"]) {
+                errors_list.push("creature_size_min must be lower or equal to creature_size_max.");
             }
 
 
@@ -71,7 +75,7 @@ var parameters_manager = {
 
             else {
                 error_container.style.display = "block";
-                error_container.innerHTML = "<span>Es sind noch Fehler zu beheben, bevor die Parameter gespeichert werden können:</span>";
+                error_container.innerHTML = "<span>Some errors need to be corrected before the parameters can be saved:</span>";
 
                 for (error of errors_list) {
                     var error_span = "<span>" + error + "</span>";
@@ -91,13 +95,13 @@ var parameters_manager = {
 
 
     parameters: {
-        simulation_visualization_interval: {
+        visualization_interval: {
             value: 1,
             type: "number",
             min: 1,
             step: 1
         },
-        
+
         statistics_log_interval: {
             value: 500,
             type: "number",
@@ -105,7 +109,7 @@ var parameters_manager = {
             step: 1
         },
 
-        food_growth_cycle: {
+        food_growth_interval: {
             value: 1,
             type: "number",
             min: 0,
@@ -119,7 +123,7 @@ var parameters_manager = {
             step: 1
         },
 
-        creature_start_energy: {
+        creature_initial_energy: {
             value: 500,
             type: "number",
             min: 0,
@@ -142,11 +146,11 @@ var parameters_manager = {
             step: "any"
         },
 
-        creature_speed_variation: {
+        creature_speed_mutation: {
             value: 0,
             type: "number",
             min: 0,
-            max: 2,
+            max: 1,
             step: "any"
         },
 
@@ -167,11 +171,11 @@ var parameters_manager = {
             step: "any"
         },
 
-        creature_size_variation: {
+        creature_size_mutation: {
             value: 0,
             type: "number",
             min: 0,
-            max: 2,
+            max: 1,
             step: "any"
         }
     }

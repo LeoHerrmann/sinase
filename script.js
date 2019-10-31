@@ -85,12 +85,12 @@ var simulation = {
                 creature.check_energy();
             }
 
-            if (time % parameters_manager.get_value("food_growth_cycle") == 0) {
+            if (time % parameters_manager.get_value("food_growth_interval") == 0) {
                 world.populate(0, parameters_manager.get_value("food_growth_amount"));
             }
 
 
-            if (time % parameters_manager.get_value("simulation_visualization_interval") == 0) {
+            if (time % parameters_manager.get_value("visualization_interval") == 0) {
                 visualize();
             }
 
@@ -220,7 +220,7 @@ class Creature {
     
     
     check_energy() {
-    if (this.energy >= 2 * parameters_manager.get_value("creature_start_energy")) {
+    if (this.energy >= 2 * parameters_manager.get_value("creature_initial_energy")) {
             this.multiply();
         }
         else if (this.energy <= 0) {
@@ -238,8 +238,8 @@ class Creature {
         };
 
 
-        var child_min_speed = this.speed - parseFloat(parameters_manager.get_value("creature_speed_variation"));
-        var child_max_speed = this.speed + parseFloat(parameters_manager.get_value("creature_speed_variation"));
+        var child_min_speed = this.speed - parseFloat(parameters_manager.get_value("creature_speed_mutation"));
+        var child_max_speed = this.speed + parseFloat(parameters_manager.get_value("creature_speed_mutation"));
 
         if (child_min_speed < parseFloat(parameters_manager.get_value("creature_speed_min"))) {
             child_min_speed = parseFloat(parameters_manager.get_value("creature_speed_min"));
@@ -251,8 +251,8 @@ class Creature {
         child_properties.speed = randint(child_min_speed * 100, child_max_speed * 100) / 100;
         
         
-        var child_min_size = this.size - parseFloat(parameters_manager.get_value("creature_size_variation"));
-        var child_max_size = this.size + parseFloat(parameters_manager.get_value("creature_size_variation"));
+        var child_min_size = this.size - parseFloat(parameters_manager.get_value("creature_size_mutation"));
+        var child_max_size = this.size + parseFloat(parameters_manager.get_value("creature_size_mutation"));
 
         if (child_min_size < parseFloat(parameters_manager.get_value("creature_size_min"))) {
             child_min_size = parseFloat(parameters_manager.get_value("creature_size_min"));
@@ -266,7 +266,7 @@ class Creature {
         
         creatures_manager.create_new(JSON.parse(JSON.stringify(child_properties)));
 
-        this.energy -= parameters_manager.get_value("creature_start_energy");
+        this.energy -= parameters_manager.get_value("creature_initial_energy");
     }
 
 
@@ -295,7 +295,7 @@ var creatures_manager = {
         var new_id = creatures_manager.id_counter;
         var new_position = {};
         var new_direction;
-        var new_energy = parameters_manager.get_value("creature_start_energy");
+        var new_energy = parameters_manager.get_value("creature_initial_energy");
         var new_speed = (parameters_manager.get_value("creature_speed_min") + parameters_manager.get_value("creature_speed_max")) / 2;
         var new_size = (parameters_manager.get_value("creature_size_min") + parameters_manager.get_value("creature_size_max")) / 2;
 
