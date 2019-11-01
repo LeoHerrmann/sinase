@@ -67,7 +67,7 @@ var parameters_manager = {
             }
 
 
-            var error_container = document.getElementById("error_container");
+            var error_container = document.querySelector("#parameters_container .error_container");
 
             if (errors_list.length == 0) {
                 error_container.style.display = "none";
@@ -95,7 +95,7 @@ var parameters_manager = {
 
 
     parameters: {
-        visualization_interval: {
+        /*visualization_interval: {
             value: 1,
             type: "number",
             min: 1,
@@ -107,7 +107,7 @@ var parameters_manager = {
             type: "number",
             min: 100,
             step: 1
-        },
+        },*/
 
         food_growth_interval: {
             value: 1,

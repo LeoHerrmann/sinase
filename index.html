@@ -11,6 +11,7 @@
         <script src="script.js"></script>
         <script src="parameters.js"></script>
         <script src="statistics.js"></script>
+        <script src="settings.js"></script>
         <script src="ui.js"></script>
 
         <link rel="manifest" href="manifest.json"/>
@@ -24,6 +25,7 @@
     <body>
         <header>
             <h1>Sinase!</h1>
+            <button class="icon-settings" onclick="ui.popup.show('settings_container');"></button>
         </header>
 
 
@@ -86,8 +88,8 @@
                 <input id="simulate_until_input" name="simulate_until_input" type="number" value="10000"/> 
             </div>
 
-            <button id="simulation_toggle_button" class="primary" onclick="simulation.start(); ui.popup.hide();">Start</button>
-            <button onclick="simulation.reset();">Reset</button>
+            <button id="simulation_toggle_button" class="primary" onclick="simulation.start(); ui.popup.hide();">Start</button><!--
+            --><button onclick="simulation.reset();">Reset</button>
         </div> 
 
 
@@ -112,6 +114,21 @@
                 <h2>Statistics</h2>
                 <button class="negative icon-cancel" onclick="ui.popup.hide();"></button>
             </div>
+        </div>
+
+
+
+        <div id="settings_container" class="popup">
+            <div class="popup_header">
+                <h2>Settings</h2>
+                <button class="negative icon-cancel" onclick="ui.popup.hide();"></button>
+            </div>
+            
+            <div id="settings_inputs_container"></div>
+            
+            <div class="error_container"></div>
+        
+            <button class="primary" onclick="settings_manager.save()">Save</button>
         </div>
     </body>
 </html>

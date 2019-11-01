@@ -7,6 +7,7 @@ var simulate_until = 0;
 
 window.onload = function() {
     parameters_manager.fill_parameters_container();
+    settings_manager.fill_settings_container();
 };
 
 
@@ -67,7 +68,8 @@ var simulation = {
 
 
     time_unit: function() {
-        if (time % parameters_manager.get_value("statistics_log_interval") === 0) {
+        //if (time % parameters_manager.get_value("statistics_log_interval") === 0) {
+        if (time % settings_manager.get_value("statistics_log_interval") === 0) {
             statistics.save("population", "population", creatures_manager.list.length);
             statistics.save("food", "food", food_manager.list.length);
             statistics.save("creature_speed", "average", creatures_manager.get_average_speed());
@@ -90,7 +92,8 @@ var simulation = {
             }
 
 
-            if (time % parameters_manager.get_value("visualization_interval") == 0) {
+            //if (time % parameters_manager.get_value("visualization_interval") == 0) {
+            if (time % settings_manager.get_value("visualization_interval") == 0) {
                 visualize();
             }
 

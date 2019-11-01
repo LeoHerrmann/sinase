@@ -1,3 +1,6 @@
+01.11.2019
+statistics_log_interval and visualisation_interval moved from parameters menu to new settings menu
+
 31.10.2019
 Parameter names improved
 Energy consumption formula simplified (result is still the same)

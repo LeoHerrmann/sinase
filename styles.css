@@ -71,7 +71,7 @@ button {
     color: #07b;
     text-transform: uppercase;
     font-weight: 900;
-    float: left; /* This is meant to get rid of the automatic small spaces between buttons */
+    /*float: left;*/ /* This is meant to get rid of the automatic small spaces between buttons */
 }
 button:active {
     background-color:#EEE;
@@ -215,14 +215,14 @@ h4 {
 
 
 
-#parameter_inputs_container > div + div {
+#parameter_inputs_container > div + div, #settings_inputs_container > div + div {
     margin-top: var(--space--3);
 }
-#error_container {
+.error_container {
     display: none;
     color: #F50;
 }
-#error_container > span {
+.error_container > span {
     display: block;
 }
 
@@ -234,24 +234,31 @@ h4 {
 
 
 header {
+    display: flex;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: var(--space-7);
-
     padding: 0 var(--space--3);
     box-sizing: border-box;
     z-index: 10;
-
     border-bottom: 1px solid #DDD;
     background: #FFF;
 }
-header + .placeholder {
-    height: var(--space-7);
-}
 header > h1 {
     line-height: var(--space-7);
+    flex-grow: 1;
+}
+header > button {
+    border: 0;
+    height: var(--space-5);
+    width: var(--space-5);
+    padding: 0;
+    margin-top: calc(var(--space-1) / 2);
+}
+header + .placeholder {
+    height: var(--space-7);
 }
 
 
@@ -264,10 +271,6 @@ header > h1 {
     border: 1px solid #DDD;
     border-radius: 4px;
     background-color: #FFF;
-}
-
-
-#simulation_container {
     padding: var(--space--3);
     box-sizing: border-box;
 }
@@ -320,3 +323,7 @@ header > h1 {
 #time_container > button + button {
     margin-left: var(--space--3);
 }
+
+
+
+
