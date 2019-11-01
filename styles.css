@@ -257,6 +257,9 @@ header > button {
     margin-top: calc(var(--space-1) / 2);
     color: inherit;
 }
+header > button + button {
+    margin-left: var(--space--3);
+}
 header + .placeholder {
     height: var(--space-7);
 }
