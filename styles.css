@@ -71,7 +71,6 @@ button {
     color: #07b;
     text-transform: uppercase;
     font-weight: 900;
-    /*float: left;*/ /* This is meant to get rid of the automatic small spaces between buttons */
 }
 button:active {
     background-color:#EEE;
@@ -256,6 +255,7 @@ header > button {
     width: var(--space-5);
     padding: 0;
     margin-top: calc(var(--space-1) / 2);
+    color: inherit;
 }
 header + .placeholder {
     height: var(--space-7);
