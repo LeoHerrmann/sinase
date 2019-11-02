@@ -14,11 +14,11 @@ F I R S T   S T E P S
 
 3) Wait until the properties of the creatures and environment have reached a point at where they are nearly constant. Use the statistics menu to watch the development of these properties.
 
-4) Start changing parameters in the parameters menu. Don't make too many changes at once however, as you won't be able to properly see the effects of those changes. For instance, change the food growth or the creatures_start_energy. You can also allow some properties of the creatures to mutate by increasing the value of creature_[trait]_variation (0.1 is a good starting point here). Remember to validate and save your changes, otherwise they won't have any effect.
+4) Start changing parameters in the parameters menu. Don't make too many changes at once however, as you won't be able to properly see the effects of those changes. You can for instance change the food growth by altering food_growth_interval or food_growth_amount. Alternatively, you can also allow one of the creatures traits to mutate by editing creature_[trait]_mutation (0.1 is a good starting point here). Remember to validate and save your changes, otherwise they won't have any effect.
 
 5) Watch how your changes affect the environment and population using the statistics menu.
 
-6) Repeat 4) and 5).
+6) Now that you've gone through the basics of how it works you can continue experimenting with more parameters.
 
 
 
@@ -73,6 +73,9 @@ The minimum value a mutatable trait can have
 
 creature_[trait]_max:
 The maximum value a mutatable trait can have
+
+creature_[trait]_default:
+The value of a mutatable trait that creatures which creatures created using the population menu have
 
 creature_[trait]_variation:
 The maximum difference between a creature's trait and its parent's trait

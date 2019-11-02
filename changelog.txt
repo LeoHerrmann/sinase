@@ -1,5 +1,7 @@
 02.11.2019
 defaults for mutatable attributes can be set using parameters menu
+Edited title
+Basic tutorial
 
 01.11.2019
 statistics_log_interval and visualisation_interval moved from parameters menu to new settings menu
