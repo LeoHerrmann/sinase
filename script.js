@@ -299,8 +299,10 @@ var creatures_manager = {
         var new_position = {};
         var new_direction;
         var new_energy = parameters_manager.get_value("creature_initial_energy");
-        var new_speed = (parameters_manager.get_value("creature_speed_min") + parameters_manager.get_value("creature_speed_max")) / 2;
-        var new_size = (parameters_manager.get_value("creature_size_min") + parameters_manager.get_value("creature_size_max")) / 2;
+        /*var new_speed = (parameters_manager.get_value("creature_speed_min") + parameters_manager.get_value("creature_speed_max")) / 2;
+        var new_size = (parameters_manager.get_value("creature_size_min") + parameters_manager.get_value("creature_size_max")) / 2;*/
+        var new_speed = parameters_manager.get_value("creature_speed_default");
+        var new_size = parameters_manager.get_value("creature_size_default");
 
 
         new_position["x"] = randint(0, 100 - new_size);

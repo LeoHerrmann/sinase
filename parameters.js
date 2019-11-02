@@ -58,12 +58,28 @@ var parameters_manager = {
             }
 
 
-            if (input["creature_speed_min"] > input["creature_speed_max"]) {
+            var creature_speed_min_input = input["creature_speed_min"];
+            var creature_speed_max_input = input["creature_speed_max"];
+            var creature_speed_default_input = input["creature_speed_default"];
+
+            var creature_size_min_input = input["creature_size_min"];
+            var creature_size_max_input = input["creature_size_max"];
+            var creature_size_default_input = input["creature_size_default"];
+
+            if (creature_speed_min_input > creature_speed_max_input) {
                 errors_list.push("creature_speed_min must be lower or equal to creature_speed_max.");
+            }
+
+            if (creature_speed_default_input < creature_speed_min_input || creature_speed_default_input > creature_speed_max_input) {
+                errors_list.push("creature_speed_default must be higher than creature_speed_min and lower than creature_speed_max");
             }
 
             if (input["creature_size_min"] > input["creature_size_max"]) {
                 errors_list.push("creature_size_min must be lower or equal to creature_size_max.");
+            }
+
+            if (creature_size_default_input < creature_size_min_input || creature_size_default_input > creature_size_max_input) {
+                errors_list.push("creature_size_default must be higher than creature_size_min and lower than creature_size_max");
             }
 
 
@@ -83,7 +99,7 @@ var parameters_manager = {
                     error_container.innerHTML += error_span;
                 }
             }
-        
+
             return errors_list;
         }
     },
@@ -95,20 +111,6 @@ var parameters_manager = {
 
 
     parameters: {
-        /*visualization_interval: {
-            value: 1,
-            type: "number",
-            min: 1,
-            step: 1
-        },
-
-        statistics_log_interval: {
-            value: 500,
-            type: "number",
-            min: 100,
-            step: 1
-        },*/
-
         food_growth_interval: {
             value: 1,
             type: "number",
@@ -134,15 +136,23 @@ var parameters_manager = {
             value: 4,
             type: "number",
             min: 0.25,
-            max: 4,
+            max: 5,
             step: "any"
         },
 
         creature_speed_min: {
             value: 0.5,
             type: "number",
-            min: 0.25,
+            min: 0.1,
             max: 4,
+            step: "any"
+        },
+        
+        creature_speed_default: {
+            value: 2,
+            type: "number",
+            min: 0.1,
+            max: 5,
             step: "any"
         },
 
@@ -154,12 +164,11 @@ var parameters_manager = {
             step: "any"
         },
 
-
         creature_size_max: {
             value: 4,
             type: "number",
             min: 0.5,
-            max: 4,
+            max: 5,
             step: "any"
         },
 
@@ -167,7 +176,15 @@ var parameters_manager = {
             value: 0.5,
             type: "number",
             min: 0.5,
-            max: 4,
+            max: 5,
+            step: "any"
+        },
+        
+        creature_size_default: {
+            value: 2,
+            type: "number",
+            min: 0.5,
+            max: 5,
             step: "any"
         },
 
