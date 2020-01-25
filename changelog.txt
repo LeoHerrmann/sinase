@@ -1,3 +1,6 @@
+25.01.2019
+Icon size padding corrected
+
 02.11.2019
 defaults for mutatable attributes can be set using parameters menu
 Edited title
