@@ -1,4 +1,7 @@
-25.01.2019
+26.05.2020
+Improved menu button layout
+
+25.01.2020
 Icon size padding corrected
 
 02.11.2019

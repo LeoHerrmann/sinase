@@ -3,15 +3,11 @@
     font-weight: 600;
     src: url("Raleway/Raleway-Medium.ttf");
 }
+
 @font-face {
     font-family: "Raleway";
     font-weight: 800;
     src: url("Raleway/Raleway-Bold.ttf");
-}
-@font-face {
-    font-family: "Raleway";
-    font-weight: 900;
-    src: url("Raleway/Raleway-ExtraBold.ttf");
 }
 
 
@@ -70,8 +66,9 @@ button, input {
 button {
     color: #07b;
     text-transform: uppercase;
-    font-weight: 900;
+    font-weight: 800;
 }
+
 button:active {
     background-color:#EEE;
 }
@@ -81,9 +78,11 @@ button.primary {
     background: #07b;
     color:#FFF;
 }
+
 button.primary:active {
     background: #059;
 }
+
 button.negative {
     color: #F50;
 }
@@ -95,20 +94,24 @@ button.negative {
 h1, h2, h3, h4 {
     margin:0;
 }
+
 h1 {
     font-size: var(--space-2);
     line-height: 1;
     font-weight: 800;
 }
+
 h2 {
     font-size:var(--space-1);
     line-height: 1;
     font-weight: 800;
 }
+
 h3 {
     font-size:var(--space-1);
     line-height: 1.2;
 }
+
 h4 {
     font-size:var(--space-0);
     line-height: 1.2;
@@ -123,9 +126,11 @@ h4 {
     grid-template-columns: 1fr 8ch;
     align-items: center;
 }
+
 .input_set > label {
     word-break: break-all;
 }
+
 .input_set > input {
     width: 100%;
 }
@@ -156,6 +161,7 @@ h4 {
     animation: popup 0.3s;
     transition: opacity 0.3s, top 0.3s;
 }
+
 @keyframes popup {
     from {
         opacity: 0;
@@ -172,10 +178,12 @@ h4 {
     border-bottom: 1px solid #DDD;
     background-color: #FFF;
 }
+
 .popup > .popup_header > h2 {
     display: inline-block;
     line-height: var(--space-3);
 }
+
 .popup > .popup_header > button {
     float: right;
     height: var(--space-3);
@@ -217,10 +225,12 @@ h4 {
 #parameter_inputs_container > div + div, #settings_inputs_container > div + div {
     margin-top: var(--space--3);
 }
+
 .error_container {
     display: none;
     color: #F50;
 }
+
 .error_container > span {
     display: block;
 }
@@ -245,10 +255,12 @@ header {
     border-bottom: 1px solid #DDD;
     background: #FFF;
 }
+
 header > h1 {
     line-height: var(--space-7);
     flex-grow: 1;
 }
+
 header > button {
     border: 0;
     height: var(--space-5);
@@ -257,9 +269,11 @@ header > button {
     margin-top: calc(var(--space-1) / 2);
     color: inherit;
 }
+
 header > button + button {
     margin-left: var(--space--3);
 }
+
 header + .placeholder {
     height: var(--space-7);
 }
@@ -277,7 +291,6 @@ header + .placeholder {
     padding: var(--space--3);
     box-sizing: border-box;
 }
-
 
 #environment {
     position: relative;
@@ -306,27 +319,34 @@ header + .placeholder {
 
 #button_container {
     margin-top: var(--space--3);
-    display: flex;
-    justify-content: space-around;
-}
-#button_container > button {
-    height: var(--space-5);
-    width: var(--space-7);
-    padding: 0;
-    border: 0;
-    font-size: var(--space-1);
+    display: grid;
+    grid-gap: var(--space--3);
+    grid-template-columns: 1fr 1fr;
 }
 
+#button_container > button {
+    height: var(--space-5);
+    width: 100%;
+    padding: 0;
+    font-size: var(--space--1);
+}
+
+#button_container > button::before {
+    font-size: var(--space-0);
+}
+
+@media only screen and (min-width: 620px) {
+    #button_container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
 
 
 
 #time_container > .input_set {
     grid-template-columns: 1fr 10ch;
 }
+
 #time_container > button + button {
     margin-left: var(--space--3);
 }
-
-
-
-
