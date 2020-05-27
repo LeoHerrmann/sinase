@@ -6,7 +6,7 @@ var statistics = {
         if (chart_name in statistics.charts === false) {
             var statistics_container = document.getElementById("statistics_container");
             var new_chart_container = document.createElement("div");
-            var new_chart_container_heading = document.createElement("h4");
+            var new_chart_container_heading = document.createElement("h3");
             var new_chart_container_chart = document.createElement("canvas");
 
             statistics_container.append(new_chart_container);
@@ -41,7 +41,7 @@ var statistics = {
             }
         }
 
-        if (dataset_already_in_chart === false) {            
+        if (dataset_already_in_chart === false) {
             var new_dataset = {
                 data: [],
                 label: dataset_name

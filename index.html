@@ -12,10 +12,12 @@
         <script src="parameters.js"></script>
         <script src="statistics.js"></script>
         <script src="settings.js"></script>
+        <script src="help_text.js"></script>
         <script src="ui.js"></script>
 
         <link rel="manifest" href="manifest.json"/>
 		<meta name="theme-color" content="#07B"/>
+		<link rel="icon" href="icon.png"/>
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="white">
 		<meta name="apple-mobile-web-app-title" content="Sinase">
@@ -25,7 +27,7 @@
     <body>
         <header>
             <h1>Sinase</h1>
-            <button class="icon-info" onclick="window.open('tutorial.txt');"></button>
+            <button class="icon-info" onclick="ui.popup.show('help_container');"></button>
             <button class="icon-settings" onclick="ui.popup.show('settings_container');"></button>
         </header>
 
@@ -115,6 +117,17 @@
                 <h2>Statistics</h2>
                 <button class="negative icon-cancel" onclick="ui.popup.hide();"></button>
             </div>
+        </div>
+
+
+
+        <div id="help_container" class="popup">
+            <div class="popup_header">
+                <h2>Help</h2>
+                <button class="negative icon-cancel" onclick="ui.popup.hide();"></button>
+            </div>
+
+            <div id="help_text_container"></div>
         </div>
 
 

@@ -74,7 +74,7 @@ var settings_manager = {
                     error_container.innerHTML += error_span;
                 }
             }
-        
+
             return errors_list;
         }
     },

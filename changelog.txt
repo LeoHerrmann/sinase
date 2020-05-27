@@ -1,3 +1,6 @@
+27.05.2020
+Help menu
+
 26.05.2020
 Improved menu button layout
 
@@ -57,7 +60,6 @@ time_unit-visualisation interval is now adjustable
 Function for energy consumption was adjusted
 New paremter: size: increased probability of finding food, increased energy consumption
 Bugfix: creatures_manager.create_new: Calculation of average of maximum and minimum of a parameter was faulty
-
 
 15.10.2019
 Creature Class

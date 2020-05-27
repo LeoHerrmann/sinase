@@ -55,7 +55,7 @@ var simulation = {
 
         world.clear();
         statistics.clear();
-        
+
         document.getElementById("current_time_label").innerText = time;
 
         var simulation_toggle_button = document.getElementById("simulation_toggle_button");
@@ -68,7 +68,6 @@ var simulation = {
 
 
     time_unit: function() {
-        //if (time % parameters_manager.get_value("statistics_log_interval") === 0) {
         if (time % settings_manager.get_value("statistics_log_interval") === 0) {
             statistics.save("population", "population", creatures_manager.list.length);
             statistics.save("food", "food", food_manager.list.length);
@@ -220,8 +219,8 @@ class Creature {
             }
         }
     }
-    
-    
+
+
     check_energy() {
     if (this.energy >= 2 * parameters_manager.get_value("creature_initial_energy")) {
             this.multiply();
@@ -252,8 +251,8 @@ class Creature {
         }
 
         child_properties.speed = randint(child_min_speed * 100, child_max_speed * 100) / 100;
-        
-        
+
+
         var child_min_size = this.size - parseFloat(parameters_manager.get_value("creature_size_mutation"));
         var child_max_size = this.size + parseFloat(parameters_manager.get_value("creature_size_mutation"));
 
@@ -265,8 +264,8 @@ class Creature {
         }
 
         child_properties.size = randint(child_min_size * 100, child_max_size * 100) / 100;
-        
-        
+       
+
         creatures_manager.create_new(JSON.parse(JSON.stringify(child_properties)));
 
         this.energy -= parameters_manager.get_value("creature_initial_energy");
@@ -299,8 +298,6 @@ var creatures_manager = {
         var new_position = {};
         var new_direction;
         var new_energy = parameters_manager.get_value("creature_initial_energy");
-        /*var new_speed = (parameters_manager.get_value("creature_speed_min") + parameters_manager.get_value("creature_speed_max")) / 2;
-        var new_size = (parameters_manager.get_value("creature_size_min") + parameters_manager.get_value("creature_size_max")) / 2;*/
         var new_speed = parameters_manager.get_value("creature_speed_default");
         var new_size = parameters_manager.get_value("creature_size_default");
 
@@ -348,7 +345,7 @@ var creatures_manager = {
         if (creatures_manager.list.length == 0) {
             return;
         }
-        
+
         var minimum = creatures_manager.list[0].speed;
 
         for (creature of creatures_manager.list) {
@@ -364,7 +361,7 @@ var creatures_manager = {
         if (creatures_manager.list.length == 0) {
             return;
         }
-    
+
         var maximum = creatures_manager.list[0].speed;
 
         for (creature of creatures_manager.list) {
@@ -409,7 +406,7 @@ var creatures_manager = {
         if (creatures_manager.list.length == 0) {
             return;
         }
-        
+
         var maximum = creatures_manager.list[0].size;
 
         for (creature of creatures_manager.list) {

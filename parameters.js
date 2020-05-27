@@ -147,7 +147,7 @@ var parameters_manager = {
             max: 4,
             step: "any"
         },
-        
+
         creature_speed_default: {
             value: 2,
             type: "number",
@@ -161,7 +161,7 @@ var parameters_manager = {
             type: "number",
             min: 0,
             max: 1,
-            step: "any"
+            step: "0.1"
         },
 
         creature_size_max: {
@@ -179,7 +179,7 @@ var parameters_manager = {
             max: 5,
             step: "any"
         },
-        
+
         creature_size_default: {
             value: 2,
             type: "number",
@@ -193,7 +193,7 @@ var parameters_manager = {
             type: "number",
             min: 0,
             max: 1,
-            step: "any"
+            step: "0.1"
         }
     }
 };

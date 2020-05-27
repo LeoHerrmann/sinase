@@ -32,3 +32,11 @@ var ui = {
         }
     }
 };
+
+
+
+
+
+window.addEventListener("load", function() {
+    document.getElementById("help_text_container").innerHTML = help_text;
+});
