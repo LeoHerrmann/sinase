@@ -1,6 +1,7 @@
 27.05.2020
 Help menu
 New icon
+README.md
 
 26.05.2020
 Improved menu button layout
