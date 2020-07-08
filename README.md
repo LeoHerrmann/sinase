@@ -1,8 +1,6 @@
 # Sinase
 
-Sinase is an application that allows you to simulate natural selection.
-
-It lets you set up an environment with creatures and food and observe how parameters like food growth or mutations of different traits affect the population. 
+A natural selection simulator allowing you to you set up an environment with creatures and food and observe how parameters like food growth or mutations of different traits affect the environment
 
 Click [here](https://rahm.pythonanywhere.com/sinase/) to try it out.
 
